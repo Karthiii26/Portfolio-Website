@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,126 +10,143 @@
     <link rel="stylesheet" href="navbar.css">
     <script src="navbar.js"></script>
     <link rel="icon" type="png" href="photos/logo.png">
+    <script defer src="/_vercel/analytics/script.js"></script>
+    <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
 <body>
-<div id="navbar"></div>
-<script>
-  fetch("navbar.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
-      const current = location.pathname.split("/").pop();
-      document.querySelectorAll("#navbar a").forEach(link => {
-        const href = link.getAttribute("href");
-        if (href === current || (href === "index.html" && current === "")) {
-          link.classList.add("active");
-        }
-      });
-    });
-</script>
+    <div id="navbar"></div>
+    <script>
+        fetch("navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+                const current = location.pathname.split("/").pop();
+                document.querySelectorAll("#navbar a").forEach(link => {
+                    const href = link.getAttribute("href");
+                    if (href === current || (href === "index.html" && current === "")) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+    </script>
 
 
-<div class="container">
-      <div class="aboutme">
-        <h1><span class="about">About</span><span class="me"> Me</span></h1>
-        <h3>Get to know me better - my journey, passions and aspirations</h3>
-      </div>
-
-      <div class="introcard">
-  <div class="image">
-    <div class="computer"><p>💻</p></div>
-    <div class="rocket"><p>🚀</p></div>
-    <img src="photos/photo2.jpg" alt="Karthikesh">
-  </div>
-
-  <div class="intro-text">
-    <h1>Hello! I'm a curious and driven developer</h1>
-    <p>I'm currently in my second year of engineering, and I love building things that actually solve problems. What started with a simple “Hello World” has now grown into a genuine passion for coding and creating meaningful projects.</p>
-    <br>
-    <p>I strongly believe in continuous improvement. Right now, I'm sharpening my problem-solving skills through competitive programming and working on real-world projects that help me learn, experiment, and grow as a developer.</p>
-  </div>
-</div>
-    </div>
-<div class="about-layout">
-    <div class="left-content">
-        <div class="locexpcard">
-            <div class="location">
-                <div class="icon-box">
-                    <img src="photos/location.svg">
-                </div>
-                <div class="text-block">
-                    <p class="card-title">Location</p>
-                    <p class="card-value">Coimbatore, India</p>
-                </div>
-            </div>
-
-            <div class="experience">
-                <div class="icon-box">
-                    <img src="photos/calendar.svg">
-                </div>
-                <div class="text-block">
-                    <p class="card-title">Experience</p>
-                    <p class="card-value">Problem Solving</p>
-                </div>
-            </div>
+    <div class="container">
+        <div class="aboutme">
+            <h1><span class="about">About</span><span class="me"> Me</span></h1>
+            <h3>Get to know me better - my journey, passions and aspirations</h3>
         </div>
 
-        <div class="interests">
-            <div class="title"><h2>My Interests</h2></div>
-            <div class="interests-list">
-                <p>Artificial Intelligence</p>
-                <p>Web Development</p>
-                <p>Competitive Programming</p>
-                <p>Machine Learning</p> 
-
+        <div class="introcard">
+            <div class="image">
+                <div class="computer">
+                    <p>💻</p>
+                </div>
+                <div class="rocket">
+                    <p>🚀</p>
+                </div>
+                <img src="photos/photo2.jpg" alt="Karthikesh">
             </div>
-        </div>
 
-        <div class="beyond">
-            <div class="title"><h2>Beyond Coding</h2></div>
-            <div class="beyond-text">
-                <p>When I'm not coding, I love exploring new tech trends, improving my problem-solving skills, and experimenting with side projects. I enjoy learning from the developer community and building things that challenge me to grow.</p>
+            <div class="intro-text">
+                <h1>Hello! I'm a curious and driven developer</h1>
+                <p>I'm currently in my second year of engineering, and I love building things that actually solve
+                    problems. What started with a simple “Hello World” has now grown into a genuine passion for coding
+                    and creating meaningful projects.</p>
+                <br>
+                <p>I strongly believe in continuous improvement. Right now, I'm sharpening my problem-solving skills
+                    through competitive programming and working on real-world projects that help me learn, experiment,
+                    and grow as a developer.</p>
             </div>
         </div>
     </div>
+    <div class="about-layout">
+        <div class="left-content">
+            <div class="locexpcard">
+                <div class="location">
+                    <div class="icon-box">
+                        <img src="photos/location.svg">
+                    </div>
+                    <div class="text-block">
+                        <p class="card-title">Location</p>
+                        <p class="card-value">Coimbatore, India</p>
+                    </div>
+                </div>
 
-
-<div class="right-content">
-    <div class="education-section">
-        
-        <div class="edu-header">
-            <img src="photos/graduation-cap.svg" alt="education-icon">
-            <h2>Education</h2>
-        </div>
-
-        <div class="timeline">
-            <div class="timeline-row">
-                <span class="timeline-badge">2024 - Present</span>
-                <div class="timeline-card">
-                    <h3>Bachelor's in Computer Science</h3>
-                    <h4>Kalaignarkarunanidhi Institute of Technology - GPA: 8.5</h4>
-                    <p>Currently in 2nd year, focusing on software development, AI, and problem solving.</p>
+                <div class="experience">
+                    <div class="icon-box">
+                        <img src="photos/calendar.svg">
+                    </div>
+                    <div class="text-block">
+                        <p class="card-title">Experience</p>
+                        <p class="card-value">Problem Solving</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="timeline-row">
-                <span class="timeline-badge">2022 - 2024</span>
-                <div class="timeline-card">
-                    <h3>Higher Secondary Education</h3>
-                    <h4>RVS Matriculation Higher Secondary School - Grade: 82.2%</h4>
-                    <p>Completed with specialization in Science and Mathematics.</p>
+            <div class="interests">
+                <div class="title">
+                    <h2>My Interests</h2>
+                </div>
+                <div class="interests-list">
+                    <p>Artificial Intelligence</p>
+                    <p>Web Development</p>
+                    <p>Competitive Programming</p>
+                    <p>Machine Learning</p>
+
+                </div>
+            </div>
+
+            <div class="beyond">
+                <div class="title">
+                    <h2>Beyond Coding</h2>
+                </div>
+                <div class="beyond-text">
+                    <p>When I'm not coding, I love exploring new tech trends, improving my problem-solving skills, and
+                        experimenting with side projects. I enjoy learning from the developer community and building
+                        things that challenge me to grow.</p>
                 </div>
             </div>
         </div>
+
+
+        <div class="right-content">
+            <div class="education-section">
+
+                <div class="edu-header">
+                    <img src="photos/graduation-cap.svg" alt="education-icon">
+                    <h2>Education</h2>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-row">
+                        <span class="timeline-badge">2024 - Present</span>
+                        <div class="timeline-card">
+                            <h3>Bachelor's in Computer Science</h3>
+                            <h4>Kalaignarkarunanidhi Institute of Technology - GPA: 8.5</h4>
+                            <p>Currently in 2nd year, focusing on software development, AI, and problem solving.</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-row">
+                        <span class="timeline-badge">2022 - 2024</span>
+                        <div class="timeline-card">
+                            <h3>Higher Secondary Education</h3>
+                            <h4>RVS Matriculation Higher Secondary School - Grade: 82.2%</h4>
+                            <p>Completed with specialization in Science and Mathematics.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-</div>
 
-</div>
 
-        
-      <footer>
+    <footer>
         <p>&copy; 2025 Karthikesh. All rights reserved.</p>
-      </footer>
+    </footer>
 </body>
+
 </html>

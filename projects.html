@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,147 +10,154 @@
   <link rel="stylesheet" href="navbar.css">
   <script src="navbar.js"></script>
   <link rel="icon" type="png" href="photos/logo.png">
+  <script defer src="/_vercel/analytics/script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
 <body>
 
-<div id="navbar"></div>
-<script>
-  fetch("navbar.html")
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
-      const current = location.pathname.split("/").pop();
-      document.querySelectorAll("#navbar a").forEach(link => {
-        const href = link.getAttribute("href");
-        if (href === current || (href === "index.html" && current === "")) {
-          link.classList.add("active");
-        }
+  <div id="navbar"></div>
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+        const current = location.pathname.split("/").pop();
+        document.querySelectorAll("#navbar a").forEach(link => {
+          const href = link.getAttribute("href");
+          if (href === current || (href === "index.html" && current === "")) {
+            link.classList.add("active");
+          }
+        });
       });
-    });
-</script>
-     <div class="top">
-      <h1>My Projects</h1>
-      <p>A showcase of my work and personal projects</p>
-    </div>
-    <div class="container">
-<div class="p1">
-  <div class="title">
-  <h1>Deepfake Detection System</h1>
-
-  <div class="title-icons">
-    <div class="icon-btn">
-      <img src="photos/github.svg" onclick="window.open('https://github.com/Karthiii26/Deepfake-Detection-System', '_blank')">
-    </div>
-
-    <div class="icon-btn" onclick="openVideo()">
-      <img src="photos/external-link-cyan.svg">
-    </div>
+  </script>
+  <div class="top">
+    <h1>My Projects</h1>
+    <p>A showcase of my work and personal projects</p>
   </div>
-</div>
+  <div class="container">
+    <div class="p1">
+      <div class="title">
+        <h1>Deepfake Detection System</h1>
 
-  <div class="description">
-  <p>Deepfake Detection System is an AI-powered desktop application that analyzes faces and detects potential deepfakes. It uses a custom CNN built on top of the ResNet50 architecture and presents results through a clean, dark-themed user interface.</p>
-</div>
-<div class="tech">
-  <p>Python</p>
-  <p>TensorFlow</p>
-  <p>ResNet50</p>
-  <p>Tkinter</p>
-  <p>Custom CNN</p>
-</div>
-</div>
+        <div class="title-icons">
+          <div class="icon-btn">
+            <img src="photos/github.svg"
+              onclick="window.open('https://github.com/Karthiii26/Deepfake-Detection-System', '_blank')">
+          </div>
 
-<div class="p2">
-  <div class="title">
-  <h1>Portfolio Website</h1>
+          <div class="icon-btn" onclick="openVideo()">
+            <img src="photos/external-link-cyan.svg">
+          </div>
+        </div>
+      </div>
 
-  <div class="title-icons">
-    <div class="icon-btn" onclick="window.open('https://github.com/Karthiii26/Portfolio-Website', '_blank')">
-      <img src="photos/github.svg">
+      <div class="description">
+        <p>Deepfake Detection System is an AI-powered desktop application that analyzes faces and detects potential
+          deepfakes. It uses a custom CNN built on top of the ResNet50 architecture and presents results through a
+          clean, dark-themed user interface.</p>
+      </div>
+      <div class="tech">
+        <p>Python</p>
+        <p>TensorFlow</p>
+        <p>ResNet50</p>
+        <p>Tkinter</p>
+        <p>Custom CNN</p>
+      </div>
     </div>
 
-    <div class="icon-btn">
-  <img src="photos/external-link-cyan.svg">
-  <span>No Demo available for this project</span>
-</div>
+    <div class="p2">
+      <div class="title">
+        <h1>Portfolio Website</h1>
 
-</div>
-</div>
+        <div class="title-icons">
+          <div class="icon-btn" onclick="window.open('https://github.com/Karthiii26/Portfolio-Website', '_blank')">
+            <img src="photos/github.svg">
+          </div>
 
-  <div class="description">
-  <p>This portfolio website showcases my skills, projects, and coding journey in a clean and modern interface.
-I built it from scratch with a focus on responsive design, smooth animations, and usability.
-I continuously update it as I build new projects and learn new technologies.</p>
-</div>
-<div class="tech">
-  <p>HTML5</p>
-  <p>CSS3</p>
-  <p>JavaScript</p>
-  <p>Responsive Design</p>
-  <p>Git & GitHub</p>
-</div>
-</div>
-<div class="comingsoon">
-<img src="photos/rocket.svg" alt="rocket">
-<h2>Coming Soon</h2>
-</div>
-<div class="upcoming">
-  <div class="dev">
-    <img src="photos/loader-circle.svg" alt="loader">
-    <h2>IN DEVELOPMENT</h2>
+          <div class="icon-btn">
+            <img src="photos/external-link-cyan.svg">
+            <span>No Demo available for this project</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="description">
+        <p>This portfolio website showcases my skills, projects, and coding journey in a clean and modern interface.
+          I built it from scratch with a focus on responsive design, smooth animations, and usability.
+          I continuously update it as I build new projects and learn new technologies.</p>
+      </div>
+      <div class="tech">
+        <p>HTML5</p>
+        <p>CSS3</p>
+        <p>JavaScript</p>
+        <p>Responsive Design</p>
+        <p>Git & GitHub</p>
+      </div>
+    </div>
+    <div class="comingsoon">
+      <img src="photos/rocket.svg" alt="rocket">
+      <h2>Coming Soon</h2>
+    </div>
+    <div class="upcoming">
+      <div class="dev">
+        <img src="photos/loader-circle.svg" alt="loader">
+        <h2>IN DEVELOPMENT</h2>
+      </div>
+      <div class="description">
+        <h2>Movie & Theatre Booking System</h2>
+        <p>A full-stack web application that will allow users to browse movies, select seats, and book tickets
+          seamlessly.</p>
+      </div>
+      <div class="badges">
+        <p>React.js</p>
+        <p>HTML/CSS/JS</p>
+        <p>MongoDB</p>
+        <p>Node.js</p>
+        <p>Express.js</p>
+      </div>
+    </div>
+    <div class="github">
+      <button onclick="window.open('https://github.com/Karthiii26', '_blank')">
+        <img src="photos/github-black.svg" alt="github">
+        View All on GitHub
+      </button>
+    </div>
   </div>
-  <div class="description">
-    <h2>Movie & Theatre Booking System</h2>
-    <p>A full-stack web application that will allow users to browse movies, select seats, and book tickets seamlessly.</p>
+
+  <div id="videoModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeVideo()">&times;</span>
+
+      <video id="demoVideo" controls>
+        <source src="video/deepfake-live.mp4" type="video/mp4">
+      </video>
+
+    </div>
   </div>
-  <div class="badges">
-    <p>React.js</p>
-    <p>HTML/CSS/JS</p>
-    <p>MongoDB</p>
-    <p>Node.js</p>
-    <p>Express.js</p>
-  </div>
-</div>
-        <div class="github">
-  <button onclick="window.open('https://github.com/Karthiii26', '_blank')">
-    <img src="photos/github-black.svg" alt="github">
-    View All on GitHub
-  </button>
-</div>
-</div>
-
-<div id="videoModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeVideo()">&times;</span>
-
-    <video id="demoVideo" controls>
-      <source src="video/deepfake-live.mp4" type="video/mp4">
-    </video>
-
-  </div>
-</div>
-<footer>
-  <p>&copy; 2025 Karthikesh. All rights reserved.</p>
-</footer>
+  <footer>
+    <p>&copy; 2025 Karthikesh. All rights reserved.</p>
+  </footer>
 
 
-<script>
-function openVideo() {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("demoVideo");
+  <script>
+    function openVideo() {
+      const modal = document.getElementById("videoModal");
+      const video = document.getElementById("demoVideo");
 
-  modal.style.display = "flex";
-  video.currentTime = 0;
-  video.play();
-}
+      modal.style.display = "flex";
+      video.currentTime = 0;
+      video.play();
+    }
 
-function closeVideo() {
-  const modal = document.getElementById("videoModal");
-  const video = document.getElementById("demoVideo");
-  modal.style.display = "none";
-  video.pause();
-}
-</script>
+    function closeVideo() {
+      const modal = document.getElementById("videoModal");
+      const video = document.getElementById("demoVideo");
+      modal.style.display = "none";
+      video.pause();
+    }
+  </script>
 </body>
+
 </html>
