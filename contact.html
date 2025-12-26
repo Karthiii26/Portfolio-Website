@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="contact.css">
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js"></script>
+  <link rel="icon" type="png" href="photos/logo.png">
+</head>
+<body>
+<div id="navbar"></div>
+<script>
+  fetch("navbar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+      const current = location.pathname.split("/").pop();
+      document.querySelectorAll("#navbar a").forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === current || (href === "home.html" && current === "")) {
+          link.classList.add("active");
+        }
+      });
+    });
+</script>
+    
+      <div class="top">
+        <h1><span>Get In Touch</span></h1>
+        <h3>Have a question or want to work together? Feel free to reach out!</h3>
+      </div>
+
+      <div class="container">
+          <div class="left">
+            <h1>Send me a Message</h1>
+            <form id="contactForm" action="https://formspree.io/f/maqwdkdb" method="POST">
+                <div class="nameemail">
+                    <label>
+                      Name
+                      <input type="text" class="name" name="name" placeholder="Your name" required>
+                    </label>
+                    <label>
+                      Email
+                      <input type="email" class="email" name="email" placeholder="your@email.com" required>
+                    </label>
+                  </div>
+                <label>
+                  Subject
+                  <input type="text" class="subject" name="subject" placeholder="What's this about?" required>
+                </label>
+                <label>
+                  Message
+                  <textarea name="message" class="message" placeholder="Your message..." required></textarea>
+                </label>
+                <button type="submit" id="sendBtn">
+                  <img src="photos/send.svg" id="sendIcon" alt="Send">
+                  <span id="sendText">Send Message</span>
+                </button>  
+              </form>
+          </div>
+        
+          <div class="right">
+            <div class="contact">
+              <h1>Contact Information</h1>
+              <div class="email">
+                <div class="icon">
+                <img src="photos/mailcyan.svg">
+                </div>
+                <div class="title">
+                <h2>Email</h2>
+                <p>karthikeshram@gmail.com</p>
+                </div>
+              </div>
+              <div class="location">
+                <div class="icon">
+                <img src="photos/location.svg">
+                </div>
+                <div class="title">
+                <h2>Location</h2>
+                <p>Coimbatore, India</p>
+                </div>
+              </div>
+              <div class="availability">
+                <div class="icon">
+                <img src="photos/calendar-check.svg">
+                </div>
+                <div class="title">
+                  <h2>Availability</h2>
+                <p>Open to internships & collaborative projects</p>
+                </div>
+              </div>
+            </div>
+            <div class="textbox">
+              <h1>Let's Build Something Amazing!</h1>
+              <p>I'm always excited to collaborate on interesting projects. Whether you have a specific idea or just want to chat about technology, feel free to reach out!</p>
+             <div class="resume">
+              <a href="photos/Karthikesh-Resume.pdf" download class="resume-btn">
+                <img src="photos/download.svg" alt="download">
+                <span>Download Resume</span>
+              </a>
+            </div>
+            </div>
+          </div>
+      </div>
+<footer>
+    <p>&copy; 2025 Karthikesh. All rights reserved.</p>
+</footer> 
+</body>

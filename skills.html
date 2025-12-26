@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="skills.css">
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js"></script>
+  <link rel="icon" type="png" href="photos/logo.png">
+</head>
+
+<body>
+<div id="navbar"></div>
+<script>
+  fetch("navbar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+      const current = location.pathname.split("/").pop();
+      document.querySelectorAll("#navbar a").forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === current || (href === "home.html" && current === "")) {
+          link.classList.add("active");
+        }
+      });
+    });
+</script>
+
+    <div class="top">
+      <h1>My Skills</h1>
+      <p>Technologies and tools I work with to bring ideas to life</p>
+    </div>
+    <div class="row1 reveal">
+      <div class="prog">
+        <h1><span class="icon"><img src="photos/code.svg" alt="code"></span>
+          Programming Languages</h1>
+        <div class="skills">
+        <p class="skill">Python</p>
+        <p class="skill">Java</p>
+        <p class="skill">C++</p>
+        <p class="skill">C</p>
+        </div>
+      </div>
+      <div class="frontend">
+        <h1><span class="icon"><img src="photos/panels-top-left.svg" alt="code"></span>
+          Web Development</h1>
+        <div class="skills">
+        <p class="skill">HTML/CSS</p>
+        <p class="skill">JavaScript</p>
+        <p class="skill">Responsive design</p>
+        </div>
+      </div>
+      
+    </div>
+       <div class="row2 reveal">
+      <div class="backend">
+        <h1><span class="icon"><img src="photos/wrench.svg" alt="code"></span>
+          Tools & Technologies</h1>
+        <div class="skills">
+        <p class="skill">VS Code</p>
+        <p class="skill">Git & GitHub</p>
+        <p class="skill">Google Colab</p>
+        <p class="skill">GitHub Pages</p>
+
+        </div>
+      </div>
+      <div class="learning">
+        <h1><span class="icon"><img src="photos/book-open.svg" alt="code"></span>
+          Currently Learning</h1>
+        <div class="skills">
+        <p class="skill">MongoDB</p>
+        <p class="skill">Express.js</p>
+        <p class="skill">React.js</p>
+        </div>
+      </div>
+      
+    </div>
+    <div class="row3">
+      <div class="softskills reveal">
+        <h1>Soft Skills</h1>
+        <div class="softskills-container">
+        <p class="softskill">Communication</p>
+        <p class="softskill">Teamwork</p>
+        <p class="softskill">Problem-solving</p>
+        <p class="softskill">Time management</p>
+        <p class="softskill">Adaptability</p>
+        <p class="softskill">Technical Presentation</p>
+
+
+
+        </div>
+      </div>
+    </div>
+<footer>
+  <p>&copy; 2025 Karthikesh. All rights reserved.</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+      observer.unobserve(entry.target); // remove to replay animation on scroll
+    }
+  });
+}, { threshold: 0.2 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
+
+
+
+</body>

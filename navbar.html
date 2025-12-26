@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="navbar.css">
+    <script src="navbar.js"></script>
+</head>
+
+<header id="navbar" class="navbar">
+    <div class="logo">Portfolio</div>
+    <nav>
+      <a href="home.html" >Home</a>
+      <a href="about.html" >About</a>
+      <a href="skills.html" >Skills</a>
+      <a href="projects.html" >Projects</a>
+      <a href="platforms.html" >Platforms</a>
+      <a href="contact.html" >Contact</a>
+    </nav>
+    
+    <div class="hamburger">
+      <img src="photos/menu.svg" alt="hamburger" height="20px" width="20px" onclick="toggleMenu()">
+      <div class="menu">
+        <a href="home.html" >Home</a>
+        <a href="about.html" >About</a>
+        <a href="skills.html" >Skills</a>
+        <a href="projects.html" >Projects</a>
+        <a href="platforms.html" >Platforms</a>
+        <a href="contact.html" >Contact</a>
+      </div>
+    </div>
+  </header> 
+  <script>
+  // highlight active menu item (desktop + mobile)
+  const current = location.pathname.split("/").pop();
+
+  document.querySelectorAll("#navbar a").forEach(link => {
+    const href = link.getAttribute("href");
+
+    if (href === current || (href === "home.html" && current === "")) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+</html>

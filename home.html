@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="home.css">
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js"></script>
+  <link rel="icon" type="png" href="photos/logo.png">
+
+</head>
+
+<body>
+
+<div id="navbar"></div>
+<script>
+  fetch("navbar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+      const current = location.pathname.split("/").pop();
+      document.querySelectorAll("#navbar a").forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === current || (href === "home.html" && current === "")) {
+          link.classList.add("active");
+        }
+      });
+    });
+</script>
+    
+<section id="home" class="hero">
+  <h4>👋Welcome to my portfolio</h4>
+  <div class="name"><h1>Hi, I'm <span class="name">Karthikesh</span></h1></div>
+  <p>
+    I design and build intelligent systems using AI and modern web technologies.
+    Passionate about problem solving, learning, and clean development.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="projects.html" class="btn primary">View Projects →</a>
+    <a href="contact.html" class="btn secondary">Contact Me</a>
+  </div>
+
+  <div class="findme">
+    <h3>Find me on: </h3>
+    <div class="github">
+      <img src="photos/github.svg" alt="github" onclick="window.open('https://github.com/Karthiii26', '_blank')">
+    </div>
+    <div class="linkedin">
+      <img src="photos/linkedin.svg" alt="linkedin" onclick="window.open('https://www.linkedin.com/in/karthikesh26/', '_blank')">
+    </div>
+    <div class="mail">
+      <img src="photos/mail.svg" alt="mail" onclick="window.open('mailto:karthikeshram@gmail.com', '_blank')">
+    </div>
+  </div>
+
+</section>
+<footer>
+  <p>&copy; 2025 Karthikesh. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

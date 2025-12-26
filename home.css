@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 70px;
+  background: 
+    radial-gradient(circle at 20% 40%, rgba(60, 231, 255, 0.15), transparent 60%),
+    radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.12), transparent 70%),
+    #050B18;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero {
+  height: calc(100vh - 70px);
+  padding: 120px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 56px);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+h1 .name {
+  background: linear-gradient(90deg, #3CE7FF, #A367FF);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h4 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: cyan;
+  background: rgba(0, 255, 255, 0.1);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.hero p {
+  width: 90%;
+  max-width: 600px;
+  font-size: clamp(16px, 2vw, 18px);
+  line-height: 1.8;
+  color: #cbd5e1;
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.hero-buttons .btn {
+  width: 200px;
+  padding: 14px 28px;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.btn.primary {
+  background: linear-gradient(90deg, #3CE7FF, #8e4af5);
+  color: black;
+  box-shadow: 0 5px 20px rgba(0,102,255,0.3);
+}
+
+.btn.primary:hover {
+  box-shadow: 0 10px 28px rgba(0,102,255,0.45);
+}
+
+.btn.secondary {
+  border: 2px solid gray;
+  color: white;
+}
+
+.btn.secondary:hover {
+  box-shadow: 0 10px 28px rgba(0,102,255,0.4);
+}
+
+
+.findme {
+  padding: 40px 0;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.github, .linkedin, .mail {
+  background-color: rgba(203, 213, 225, 0.1);
+  width: clamp(28px, 6vw, 40px);
+  height: clamp(28px, 6vw, 40px);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.github:hover,
+.linkedin:hover,
+.mail:hover {
+  box-shadow: 0 10px 28px rgba(0,102,255,0.6);
+  scale: 1.1;
+}
+
+.findme h3 {
+  width: 100%;
+  text-align: center;
+  color: #cbd5e1;
+  font-size: clamp(12px, 2vw, 16px);
+  margin-bottom: 10px;
+}
+
+
+.hero h4 { animation: fadeUp 1s ease forwards; animation-delay: .2s; }
+.hero h1 { animation: fadeUp 1s ease forwards; animation-delay: .4s; }
+.hero p { animation: fadeUp 1s ease forwards; animation-delay: .6s; }
+.hero-buttons { animation: fadeUp 1s ease forwards; animation-delay: .8s; }
+.findme { animation: fadeUp 1s ease forwards; animation-delay: 1s; }
+footer{
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 1.2s;
+}
+
+
+.hero h1, .hero h4, .hero p, .hero-buttons, .findme,footer {
+  opacity: 0;
+  transform: translateY(20px);
+  animation-fill-mode: forwards;
+}
+footer{
+  width: 100%;
+  height: 50px;
+  background: 
+    radial-gradient(circle at 20% 40%, rgba(60, 231, 255, 0.15), transparent 60%),
+    radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.12), transparent 70%),
+    #050B18;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #cbd5e1;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+ 
+}
+
+@media (max-width: 780px) {
+  .hero h4{
+    font-size: 14px;
+    width: 200px;
+  }
+}
+

@@ -1,0 +1,337 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 120px;
+  background: 
+    radial-gradient(circle at 20% 40%, rgba(60, 231, 255, 0.15), transparent 60%),
+    radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.12), transparent 70%),
+    #050B18;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top h1 {
+  background: linear-gradient(90deg, #3CE7FF, #A367FF);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+.top p {
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+
+.row1 {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  padding: 0 60px;
+}
+
+.leetcode,.codechef,.codeforces {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 26px;
+  width: 30%;
+  transition: .25s;
+  position: relative;
+  overflow: hidden;
+}
+.leetcode::before, .codechef::before, .codeforces::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, hsl(252, 87%, 64%), hsl(340, 82%, 59%));
+}
+
+.leetcode:hover,
+.codechef:hover,
+.codeforces:hover {
+  border-color: rgba(60,231,255,0.35);
+  box-shadow: 0 18px 30px rgba(60,231,255,0.12);
+  transform: translateY(-8px) scale(1.01);
+}
+
+
+.card-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.card-header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.1);
+  padding: 8px;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.username {
+  color: #9aa7c4;
+  font-size: 14px;
+}
+
+.stats {
+  margin-top: 24px;
+  margin-bottom: 30px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.stat-row span {
+  color: #9aa6b8;
+}
+.rating {
+  background: linear-gradient(90deg, #3CE7FF, #A367FF);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.badge {
+  padding: 6px 10px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+  font-size: 12px;
+}
+
+.card-btn {
+  margin-top: 25px;
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: .2s;
+}
+
+.card-btn:hover {
+  background: rgba(60,231,255,.12);
+  border-color: rgba(60,231,255,.4);
+}
+
+.row2 {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+.codolio {
+  background: linear-gradient(to right, rgba(139,92,246,0.05), rgba(168,85,247,0.05), rgba(217,70,239,0.05));
+  border: 1px solid rgba(255,255,255,.07);
+  padding: 22px;
+  border-radius: 18px;
+  width: 50%;
+  display: flex;
+ align-items: center;
+  gap: 30px;
+}
+
+.codolio .left{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70px;   
+}
+
+.codolio .left img{
+  background: linear-gradient(to bottom right, #8b5cf6, #a855f7, #d946ef);
+  box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.25),
+            0 4px 6px -4px rgba(168, 85, 247, 0.25);
+
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  padding: 20px;              
+  box-sizing: content-box;    
+}
+.codolio .right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.codolio h1{
+margin-bottom: 5px;
+font-size: 20px;
+}
+.codolio p{
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 15px;
+}
+.codolio a{
+  display: flex;
+  flex-direction: row;
+justify-content: left;
+align-items: center;
+gap: 10px;
+
+  background: linear-gradient(to right, #8b5cf6, #d946ef);
+background-clip: text;
+color: transparent;
+}
+
+.card-btn img,
+.codolio a img {
+  width: 16px;
+  height: 16px;
+}
+.leetcode, .codechef, .codeforces, .codolio, .top{
+  opacity: 0;
+  animation-fill-mode: forwards;
+  transform: translateY(25px);
+}
+.top{animation: fadeUp 1s ease forwards; animation-delay: .5s;}
+.leetcode{animation: fadeUp 1s ease forwards; animation-delay: .5s;}
+.codechef{animation: fadeUp 1s ease forwards; animation-delay: .6s;}
+.codeforces{animation: fadeUp 1s ease forwards; animation-delay: .7s;}
+.codolio{animation: fadeUp 1s ease forwards; animation-delay: .8s;}
+footer{
+  opacity: 0;
+  animation-fill-mode: forwards;
+  transform: translateY(25px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 1s;
+  width: 100%;
+  height: 50px;
+  background:
+    radial-gradient(circle at 20% 40%, rgba(60, 231, 255, 0.15), transparent 60%),
+    radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.12), transparent 70%),
+    #050B18;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ====== TABLETS (<= 1024px) ====== */
+@media (max-width: 1024px) {
+  .row1 {
+    padding: 0 30px;
+    gap: 18px;
+  }
+
+  .leetcode, .codechef, .codeforces {
+    width: 45%;
+  }
+
+  .codolio {
+    width: 45%;
+  }
+}
+
+/* ====== MEDIUM SCREENS (<= 900px) ====== */
+@media (max-width: 900px) {
+  .row1,.row2 {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .leetcode, .codechef, .codeforces {
+    width: 100%;
+  }
+
+  .codolio {
+    width: 100%;
+  }
+}
+
+/* ====== MOBILE (<= 650px) ====== */
+@media (max-width: 650px) {
+  .top p {
+    text-align: center;
+  }
+
+  /* normal cards — full height */
+  .leetcode,
+  .codechef,
+  .codeforces {
+    width: 100%;
+    padding: 20px;
+    min-height: 210px;
+  }
+
+  /* Codolio — compact + row layout */
+  .codolio {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    min-height: 110px;      /* ≈ half height */
+  }
+
+  .codolio .left {
+    min-width: 45px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .codolio .left img {
+    width: 28px;
+    height: 28px;
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .codolio .right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-start;
+  }
+
+  .codolio h1 {
+    font-size: 16px;
+  }
+
+  .codolio p {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+}

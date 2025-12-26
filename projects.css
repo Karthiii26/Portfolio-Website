@@ -1,0 +1,472 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 100px;
+  background: 
+    radial-gradient(circle at 20% 40%, rgba(60, 231, 255, 0.15), transparent 60%),
+    radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.12), transparent 70%),
+    #050B18;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+  background-size: cover;
+  background-position: center;
+}
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top h1 {
+  background: linear-gradient(90deg, #3CE7FF, #A367FF);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+.top p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+.container{
+  width:100%;
+  max-width:950px;
+  margin:0 auto 60px;
+  display:flex;
+  flex-direction:column;
+  gap:26px;
+}
+
+/* ---------- PROJECT CARDS ---------- */
+.p1,.p2{
+  height: 35vh;
+  background:rgba(255,255,255,.03);
+border: 1px solid rgba(255,255,255,.08);
+  border-radius:18px;
+  padding:22px;
+  padding-left: 50px;
+  position:relative;
+  overflow:hidden;
+
+}
+
+.p1::before,
+.p2::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 7px;
+  background: linear-gradient(to bottom, #3CE7FF, #A367FF);
+ 
+}
+
+.p1:hover,
+.p2:hover{
+  border-color:rgba(60,231,255,.35);
+  box-shadow:0 16px 32px rgba(60,231,255,.10);
+  transform:translateY(-6px);
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title h1{
+  font-size:24px;
+}
+
+.title img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.title-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba(60,231,255,.10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:.25s ease;
+
+}
+
+.icon-btn:hover {
+  transform: translateY(-3px) scale(1.03);
+  background: rgba(60,231,255,.18);
+  border-color: rgba(60,231,255,.55);
+  box-shadow: 0 0 14px rgba(60,231,255,.35);
+  cursor: pointer;
+}
+
+.icon-btn img {
+  width: 16px;
+  height: 16px;
+  filter: drop-shadow(0 0 4px rgba(60,231,255,.35));
+}
+
+
+.description{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color:#aeb8cc;
+  font-size:16px;
+  line-height:1.5;
+}
+
+.tech{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.tech p{
+  padding:6px 10px;
+  border-radius:16px;
+  background:rgba(255,255,255,.08);
+font-weight: 500;
+  font-size:14px;
+}
+
+/* ---------- COMING SOON ---------- */
+.comingsoon{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:20px;
+}
+.comingsoon h2{
+  color:white;
+  font-weight: 400;
+  font-size:20px;
+}
+
+.comingsoon img{
+  width:18px;
+}
+
+/* ---------- UPCOMING PROJECT ---------- */
+.upcoming{
+  border:2px dashed rgba(168,85,247,.35);
+  background:rgba(139,92,246,.05);
+  border-radius:18px;
+  padding:20px;
+}
+
+.dev{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:8px;
+}
+
+.dev img:hover{
+  animation: spin 2s linear infinite;
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dev img{
+  width:20px;
+  animation: spin 1s linear infinite;
+}
+
+
+.dev h2{
+  font-size:14px;
+  font-weight: 400;
+  color:#9966cc;
+}
+
+.upcoming .description p{
+  color:#aeb8cc;
+  font-size:16px;
+  line-height:1.5;
+  margin-bottom: 30px;
+}
+.upcoming .description h2{
+  color: white;
+  font-size:20px;
+  margin-bottom: 10px;
+}
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.badges p{
+  padding:6px 10px;
+  border-radius:16px;
+  background:rgba(255,255,255,.08);
+font-weight: 500;
+  font-size:14px;
+}
+
+.icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon-btn span {
+  position: absolute;
+  top: 10px;              
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.icon-btn:hover span {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+.github{
+  display:flex;
+  justify-content:center;
+  margin-top:18px;
+}
+
+.github button{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border:none;
+  cursor:pointer;
+  padding:12px 22px;
+  border-radius:12px;
+  background:linear-gradient(90deg,#3CE7FF,#A367FF);
+  color:#000;
+  font-weight:600;
+}
+
+.github img{
+  width:20px;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  position: relative;
+  background: #0b1223;
+  padding: 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.15);
+  width: 100%;
+  max-width: 800px;
+}
+
+.modal video {
+  width: 100%;
+  border-radius: 10px;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 28px;
+  cursor: pointer;
+  color: #cbd5e1;
+  transition: .2s;
+  z-index: 10000;      
+}
+.close:hover {
+  color: #3CE7FF;
+  transform: scale(1.1);
+}
+.top,
+.p1,
+.p2,
+.upcoming,
+.comingsoon,
+.github,
+footer{
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeUp 1s ease-out forwards;
+}
+.top{animation-delay: .05s;}
+.p1{ animation-delay: .15s;}
+.p2{ animation-delay: .25s;}
+.upcoming{ animation-delay: .35s;}
+.comingsoon{ animation-delay: .45s;}
+.github{animation-delay: .55s;}
+footer{animation-delay: .65s;}
+footer{
+  height:50px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:#cbd5e1;
+}
+
+/* =========================
+   LARGE TABLETS (<= 1024px)
+========================= */
+@media (max-width: 1024px) {
+
+  body {
+    padding-top: 90px;
+  }
+
+  .container {
+    max-width: 820px;
+    gap: 22px;
+  }
+
+  .p1, .p2 {
+    height: auto;
+  }
+}
+
+
+/* =========================
+   TABLETS (<= 900px)
+========================= */
+@media (max-width: 900px) {
+
+  .container {
+    max-width: 720px;
+    padding: 0 16px;
+  }
+
+  .p1, .p2 {
+    padding: 18px;
+    padding-left: 40px;
+  }
+
+  .title h1 {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+}
+
+
+/* =========================
+   MOBILE (<= 650px)
+========================= */
+@media (max-width: 650px) {
+
+  body {
+    padding-top: 80px;
+  }
+
+  .top p {
+    text-align: center;
+  }
+
+  .container {
+    gap: 18px;
+    padding: 0 14px;
+  }
+
+  .p1, .p2 {
+    height: auto;
+    padding: 16px;
+    padding-left: 32px;
+  }
+
+  .title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .title h1 {
+    font-size: 18px;
+  }
+
+  .title-icons {
+    align-self: flex-end;
+  }
+
+  .tech p,
+  .badges p {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  .upcoming .description p {
+    font-size: 14px;
+  }
+
+  .github button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
+/* =========================
+   SMALL MOBILE (<= 430px)
+========================= */
+@media (max-width: 430px) {
+
+  .title h1 {
+    font-size: 17px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .p1, .p2 {
+    padding: 14px;
+    padding-left: 26px;
+  }
+
+  .upcoming {
+    padding: 14px;
+  }
+
+  .comingsoon h2 {
+    font-size: 16px;
+  }
+
+  .modal-content {
+    width: 94%;
+  }
+}

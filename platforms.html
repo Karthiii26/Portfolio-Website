@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platforms</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="platforms.css">
+  <link rel="stylesheet" href="navbar.css">
+  <script src="navbar.js"></script>
+  <link rel="icon" type="png" href="photos/logo.png">
+
+</head>
+
+<body>
+
+<div id="navbar"></div>
+<script>
+  fetch("navbar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+      const current = location.pathname.split("/").pop();
+      document.querySelectorAll("#navbar a").forEach(link => {
+        const href = link.getAttribute("href");
+        if (href === current || (href === "home.html" && current === "")) {
+          link.classList.add("active");
+        }
+      });
+    });
+</script>
+
+
+<div class="top">
+  <h1>Coding Profiles</h1>
+  <p>Where I practice, compete, and continuously improve my coding skills</p>
+</div>
+
+<div class="row1">
+
+  <!-- LeetCode -->
+  <div class="leetcode">
+    <div class="card-header">
+      <img src="photos/leetcode.png">
+      <div>
+        <h2>LeetCode</h2>
+        <p class="username">@Karthii_26</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-row">
+        <span>Status</span>
+        <strong>100+ Problems Solved</strong>
+      </div>
+      <div class="stat-row">
+        <span>Rating</span>
+        <strong class="rating">1389</strong>
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">Problem Solving</span>
+      <span class="badge">DSA</span>
+      <span class="badge">100Day Badge</span>
+    </div>
+
+    <a class="card-btn" href="https://leetcode.com/Karthii_26/" target="_blank">
+      View Profile
+      <img src="photos/external-link.svg">
+    </a>
+  </div>
+
+  <!-- CodeChef -->
+  <div class="codechef">
+    <div class="card-header">
+      <img src="photos/codechef.svg">
+      <div>
+        <h2>CodeChef</h2>
+        <p class="username">@kit28aiml034</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-row">
+        <span>Status</span>
+        <strong>35+ Contests</strong>
+      </div>
+      <div class="stat-row">
+        <span>Rating</span>
+        <strong class="rating">1017</strong>
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">Contests</span>
+      <span class="badge">Rating Improvement</span>
+    </div>
+
+    <a class="card-btn" href="https://www.codechef.com/users/kit28aiml034" target="_blank">
+      View Profile
+      <img src="photos/external-link.svg">
+    </a>
+  </div>
+
+  <!-- Codeforces -->
+  <div class="codeforces">
+    <div class="card-header">
+      <img src="photos/codeforces.svg">
+      <div>
+        <h2>CodeForces</h2>
+        <p class="username">@karthikesh</p>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-row">
+        <span>Status</span>
+        <strong>Active</strong>
+      </div>
+      <div class="stat-row">
+        <span>Rating</span>
+        <strong class="rating">869</strong>
+      </div>
+    </div>
+
+    <div class="badges">
+      <span class="badge">Beginner</span>
+      <span class="badge">Rated Contests</span>
+    </div>
+
+    <a class="card-btn" href="https://codeforces.com/profile/karthikesh" target="_blank">
+      View Profile
+      <img src="photos/external-link.svg">
+    </a>
+  </div>
+
+</div>
+
+<div class="row2">
+  <div class="codolio">
+    <div class="left">
+    <img src="photos/code-xml.svg">
+    </div>
+    <div class="right">
+    <h1>All-in-One Profile on Codolio</h1>
+    <p>
+      View my consolidated coding stats and achievements across all platforms</p>
+      <a href="https://codolio.com/profile/Karthikesh" target="_blank">
+        Visit Codolio Profile
+      
+      <img src="photos/external-link.svg">
+    </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Karthikesh. All rights reserved.</p>
+</footer>
+</body>
