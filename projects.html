@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="projects.css">
   <link rel="stylesheet" href="navbar.css">
   <script src="navbar.js"></script>
@@ -46,7 +48,7 @@
               onclick="window.open('https://github.com/Karthiii26/Deepfake-Detection-System', '_blank')">
           </div>
 
-          <div class="icon-btn" onclick="openVideo()">
+          <div class="icon-btn" onclick="openVideo('video/deepfake-live.mp4')">
             <img src="photos/external-link-cyan.svg">
           </div>
         </div>
@@ -96,26 +98,55 @@
         <p>Git & GitHub</p>
       </div>
     </div>
+    <div class="p3">
+      <div class="title">
+        <h1>Movie & Theatre Booking System</h1>
+
+        <div class="title-icons">
+          <div class="icon-btn" onclick="window.open('https://github.com/Karthiii26/Movie-book', '_blank')">
+            <img src="photos/github.svg">
+          </div>
+
+          <div class="icon-btn" onclick="openVideo('video/moviebook-live.mp4')">
+            <img src="photos/external-link-cyan.svg">
+          </div>
+        </div>
+      </div>
+
+      <div class="description">
+        <p>A full-stack web application that allows users to browse movies, select seats, and book tickets seamlessly.
+          It features a robust backend for booking management and a responsive frontend for an optimal user experience.
+        </p>
+      </div>
+      <div class="tech">
+        <p>React.js</p>
+        <p>HTML/CSS/JS</p>
+        <p>MongoDB</p>
+        <p>Node.js</p>
+        <p>Express.js</p>
+      </div>
+    </div>
+
     <div class="comingsoon">
       <img src="photos/rocket.svg" alt="rocket">
       <h2>Coming Soon</h2>
     </div>
+
     <div class="upcoming">
       <div class="dev">
         <img src="photos/loader-circle.svg" alt="loader">
         <h2>IN DEVELOPMENT</h2>
       </div>
       <div class="description">
-        <h2>Movie & Theatre Booking System</h2>
-        <p>A full-stack web application that will allow users to browse movies, select seats, and book tickets
-          seamlessly.</p>
+        <h2>AI Language Learning Assistant</h2>
+        <p>An interactive AI-powered tool designed to help users learn new languages through conversation, grammar
+          correction, and vocabulary building.</p>
       </div>
       <div class="badges">
+        <p>Python</p>
+        <p>NLP</p>
+        <p>Gemini API</p>
         <p>React.js</p>
-        <p>HTML/CSS/JS</p>
-        <p>MongoDB</p>
-        <p>Node.js</p>
-        <p>Express.js</p>
       </div>
     </div>
     <div class="github">
@@ -142,9 +173,13 @@
 
 
   <script>
-    function openVideo() {
+    function openVideo(src) {
       const modal = document.getElementById("videoModal");
       const video = document.getElementById("demoVideo");
+      const source = video.querySelector("source");
+
+      source.src = src;
+      video.load();
 
       modal.style.display = "flex";
       video.currentTime = 0;
