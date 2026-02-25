@@ -5,7 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="contact.css">
   <link rel="stylesheet" href="navbar.css">
   <script src="navbar.js"></script>
@@ -112,4 +114,58 @@
   <footer>
     <p>&copy; 2025 Karthikesh. All rights reserved.</p>
   </footer>
+  <script>
+    const form = document.getElementById("contactForm");
+    const sendBtn = document.getElementById("sendBtn");
+    const sendText = document.getElementById("sendText");
+    const sendIcon = document.getElementById("sendIcon");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      sendBtn.disabled = true;
+      sendText.innerText = "Sending...";
+      sendText.style.color = "black";
+      sendBtn.style.opacity = "0.7";
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          sendText.innerText = "Message Sent!";
+          sendText.style.color = "black";
+          sendBtn.style.background = "#00ff88";
+          sendIcon.src = "photos/send.svg";
+          form.reset();
+          setTimeout(() => {
+            sendText.innerText = "Send Message";
+            sendBtn.style.background = "";
+            sendBtn.style.opacity = "";
+            sendBtn.disabled = false;
+            sendIcon.src = "photos/send.svg";
+          }, 5000);
+        } else {
+          throw new Error("Failed to send");
+        }
+      } catch (err) {
+        sendText.innerText = "Error! Try again";
+        sendBtn.style.background = "#ff4444";
+        setTimeout(() => {
+          sendText.innerText = "Send Message";
+          sendBtn.style.background = "";
+          sendBtn.style.opacity = "";
+          sendBtn.disabled = false;
+        }, 3000);
+      }
+    });
+  </script>
 </body>
+
+</html>

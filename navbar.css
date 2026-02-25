@@ -12,14 +12,14 @@
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   animation: fadedown 1s ease forwards;
-  
+
 }
 
 .logo {
   font-weight: 700;
   font-size: 1.4rem;
   background: linear-gradient(90deg, #3CE7FF, #A367FF);
- background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -58,6 +58,7 @@
 .navbar nav a:hover::after {
   width: 100%;
 }
+
 .navbar nav a::after {
   content: "";
   position: absolute;
@@ -68,6 +69,7 @@
   background: linear-gradient(90deg, #3CE7FF, #A367FF);
   transition: width 0.3s ease;
 }
+
 .navbar nav a.active::after {
   width: 100%;
 }
@@ -79,6 +81,7 @@
   flex-direction: column;
   gap: 5px;
 }
+
 .menu {
   display: flex;
   flex-direction: column;
@@ -92,8 +95,9 @@
   padding: 20px;
   border-radius: 8px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
- 
+
 }
+
 .menu.active {
   visibility: visible;
   animation: fadeUp 1s ease forwards;
@@ -110,26 +114,58 @@
 .menu a:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
 .menu a:active {
   color: cyan;
 }
 
 
 @keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(25px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-@keyframes fadedown{
-  0% { opacity: 0; transform: translateY(-25px); }
-  100% { opacity: 1; transform: translateY(0); }
+
+@keyframes fadedown {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-@keyframes toright{
-   0% { opacity: 0; transform: translateX(-25px); }
-  100% { opacity: 1; transform: translateX(0); }
+
+@keyframes toright {
+  0% {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-@keyframes toleft{
-   0% { opacity: 0; transform: translateX(25px); }
-  100% { opacity: 1; transform: translateX(0); }
+
+@keyframes toleft {
+  0% {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -154,4 +190,61 @@
     right: 20px;
     top: 18px;
   }
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+body.is-scrolling ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3CE7FF, #A367FF);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3CE7FF !important;
+}
+#scrollTopBtn {
+  position: fixed;
+  top: 80vh;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  background: rgba(5, 11, 24, 0.8);
+  border: 1px solid rgba(60, 231, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+#scrollTopBtn.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#scrollTopBtn:hover {
+  transform: translateY(-2px);
+  background-color: rgba(176, 171, 171, 0.103);
+}
+
+#scrollTopBtn img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  transition: filter 0.3s ease;
+}
+
+#scrollTopBtn:hover img {
+  filter: brightness(0);
 }

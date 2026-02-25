@@ -6,7 +6,7 @@
 
 body {
   padding-top: 100px;
-  background: 
+  background:
     radial-gradient(circle at 20% 40%, rgba(60, 231, 255, 0.15), transparent 60%),
     radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.12), transparent 70%),
     #050B18;
@@ -35,15 +35,17 @@ body {
   color: #cbd5e1;
   font-weight: 200;
 }
-.container{
- display: grid;
+
+.container {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 30px;
   padding: 0 80px;
   gap: 30px;
   align-items: stretch;
 }
-.left{
+
+.left {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -52,34 +54,42 @@ body {
   border-radius: 18px;
   padding: 20px;
   height: 85vh;
-  
+
 }
-.left h1{
+
+.left h1 {
   color: white;
   font-weight: 500;
   font-size: 20px;
 }
-.left form label{
+
+.left form label {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
+
 .left form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.nameemail{
+
+.nameemail {
   display: flex;
   gap: 20px;
 }
-.nameemail label{
+
+.nameemail label {
   flex: 1;
 }
-.left form .nameemail input{
-width: 100%;
+
+.left form .nameemail input {
+  width: 100%;
 }
-.left input, .left textarea{
+
+.left input,
+.left textarea {
   width: 100%;
   height: 50px;
   background: rgba(255, 255, 255, 0.03);
@@ -87,13 +97,15 @@ width: 100%;
   border-radius: 15px;
   padding: 15px;
   color: white;
-  font-family: 'poppins',sans-serif;
+  font-family: 'poppins', sans-serif;
 }
-.left textarea{
+
+.left textarea {
   resize: none;
   height: 120px;
 }
-.left button{
+
+.left button {
   margin-top: 20px;
   width: 100%;
   height: 50px;
@@ -108,15 +120,18 @@ width: 100%;
   align-items: center;
   gap: 10px;
 }
+
 button img {
   width: 18px;
   height: 18px;
 }
+
 .left button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 18px rgba(60,231,255,0.3);
+  box-shadow: 0 0 18px rgba(60, 231, 255, 0.3);
 }
-.right{
+
+.right {
   border-radius: 18px;
   display: flex;
   flex-direction: column;
@@ -124,54 +139,66 @@ button img {
   padding: 20px;
   height: 100%;
 }
-.contact{
-   background: rgba(255, 255, 255, 0.03);
+
+.contact {
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
   padding: 20px;
 }
-.email, .location, .availability{
+
+.email,
+.location,
+.availability {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
-.contact .icon{
- background: rgba(60, 231, 255, 0.1);
- width: 50px;
- height: 50px;
- border-radius: 15px;
- display: flex;
- justify-content: center;
- align-items: center;
+
+.contact .icon {
+  background: rgba(60, 231, 255, 0.1);
+  width: 50px;
+  height: 50px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.contact .title{
- display: flex;
- flex-direction: column;
- gap: 5px;
+
+.contact .title {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
-.title h2{
+
+.title h2 {
   font-weight: 500;
   font-size: 16px;
 }
-.contact h1{
+
+.contact h1 {
   font-weight: 500;
   font-size: 20px;
   margin-bottom: 20px;
 }
-.contact p{
+
+.contact p {
   color: #cbd5e1;
 }
-.email, .location{
+
+.email,
+.location {
   margin-bottom: 20px;
 }
 
-.resume a{
+.resume a {
   text-decoration: none;
   color: black;
   font-weight: 500;
   font-size: 16px;
 }
-.resume .resume-btn{
+
+.resume .resume-btn {
   width: 100%;
   background-color: rgb(72, 252, 252);
   padding: 10px;
@@ -181,15 +208,17 @@ button img {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px; 
-  
+  gap: 10px;
+
 }
-.resume .resume-btn:hover{
+
+.resume .resume-btn:hover {
   transform: translateY(-2px);
- border-color: rgba(60, 231, 255, 0.25);
+  border-color: rgba(60, 231, 255, 0.25);
   box-shadow: 0 0 18px rgba(60, 231, 255, 0.12);
 }
-.textbox{
+
+.textbox {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
@@ -197,17 +226,20 @@ button img {
   height: 200px;
 
 }
-.textbox h1{
+
+.textbox h1 {
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 10px;
 }
-.textbox p{
+
+.textbox p {
   color: #cbd5e1;
   font-size: 14px;
   margin-bottom: 30px;
 }
-footer{
+
+footer {
   opacity: 0;
   animation-fill-mode: forwards;
   transform: translateY(25px);
@@ -226,12 +258,15 @@ footer{
   color: #cbd5e1;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 .left,
 .contact,
-.textbox, .top {
+.textbox,
+.top {
   opacity: 0;
   animation-fill-mode: forwards;
 }
+
 .left {
   animation: toright 1s ease forwards;
 }
@@ -245,6 +280,7 @@ footer{
   animation: toleft 1s ease forwards;
   animation-delay: 0.4s;
 }
+
 .top {
   animation: fadedown 1s ease forwards;
 }
@@ -254,6 +290,7 @@ footer{
     padding: 0 40px;
   }
 }
+
 @media (max-width: 992px) {
   .container {
     grid-template-columns: 1fr;
@@ -273,6 +310,7 @@ footer{
     height: auto;
   }
 }
+
 @media (max-width: 768px) {
   .top h1 {
     font-size: 28px;
@@ -292,6 +330,7 @@ footer{
     padding: 0 20px;
   }
 }
+
 @media (max-width: 576px) {
   body {
     padding-top: 80px;

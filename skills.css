@@ -6,7 +6,7 @@
 
 body {
   padding-top: 120px;
-  background: 
+  background:
     radial-gradient(circle at 20% 40%, rgba(60, 231, 255, 0.15), transparent 60%),
     radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.12), transparent 70%),
     #050B18;
@@ -16,6 +16,7 @@ body {
   background-size: cover;
   background-position: center;
 }
+
 .top {
   display: flex;
   flex-direction: column;
@@ -29,21 +30,30 @@ body {
   -webkit-text-fill-color: transparent;
   margin-bottom: 10px;
 }
+
 .top p {
   font-size: 16px;
   margin-bottom: 30px;
 }
-.row1,.row2{margin-bottom: 20px;
+
+.row1,
+.row2 {
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   padding-left: 100px;
   padding-right: 100px;
   gap: 30px;
 }
-.row2{
+
+.row2 {
   margin-bottom: 50px;
 }
-.prog, .frontend,.backend,.learning{
+
+.prog,
+.frontend,
+.backend,
+.learning {
   padding: 30px;
   padding-left: 30px;
   width: 50%;
@@ -52,7 +62,11 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
 }
-.prog h1,.frontend h1,.backend h1,.learning h1{
+
+.prog h1,
+.frontend h1,
+.backend h1,
+.learning h1 {
   background: linear-gradient(90deg, #3CE7FF, #A367FF);
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,7 +79,7 @@ body {
 }
 
 .icon {
-width: 34px;
+  width: 34px;
   height: 34px;
   border-radius: 10px;
   background: rgba(60, 231, 255, 0.15);
@@ -84,17 +98,18 @@ width: 34px;
   width: 18px;
   height: 18px;
   object-fit: contain;
-  filter: drop-shadow(0 0 4px rgba(60,231,255,.4));
+  filter: drop-shadow(0 0 4px rgba(60, 231, 255, .4));
 }
+
 .prog,
 .frontend,
 .backend,
 .learning {
-  background: radial-gradient( at top, rgba(255,255,255,.06), rgba(255,255,255,.02) );
-  border: 1px solid rgba(255,255,255,0.12);
+  background: radial-gradient(at top, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
+  border: 1px solid rgba(255, 255, 255, 0.12);
   box-shadow:
-    0 8px 18px rgba(0,0,0,.25),
-    inset 0 0 0 1px rgba(255,255,255,.05);
+    0 8px 18px rgba(0, 0, 0, .25),
+    inset 0 0 0 1px rgba(255, 255, 255, .05);
   transition: transform .25s ease, box-shadow .25s ease, border .25s ease;
 }
 
@@ -103,19 +118,21 @@ width: 34px;
 .backend:hover,
 .learning:hover {
   transform: translateY(-6px) scale(1.01);
-  border-color: rgba(60,231,255,.35);
+  border-color: rgba(60, 231, 255, .35);
   box-shadow:
-    0 18px 35px rgba(60,231,255,.15),
-    0 10px 18px rgba(0,0,0,.35);
+    0 18px 35px rgba(60, 231, 255, .15),
+    0 10px 18px rgba(0, 0, 0, .35);
 }
-.skills{
+
+.skills {
   display: flex;
-   flex-direction: row;
-   margin-bottom: 10px;
-   gap: 20px;
+  flex-direction: row;
+  margin-bottom: 10px;
+  gap: 20px;
 }
-.skills .skill{
- border-radius: 30px;
+
+.skills .skill {
+  border-radius: 30px;
   background-color: rgba(255, 255, 255, 0.1);
   font-weight: 500;
   width: 100%;
@@ -124,10 +141,11 @@ width: 34px;
   justify-content: center;
   align-items: center;
 }
-.skills .skill:hover{
+
+.skills .skill:hover {
   color: cyan;
   box-shadow: 0 0 10px rgba(60, 231, 255, 0.25);
-  cursor:default;
+  cursor: default;
 }
 
 .row3 {
@@ -142,7 +160,7 @@ width: 34px;
   justify-content: center;
   align-items: center;
   background: linear-gradient(90deg, #3CE7FF, #A367FF);
-   background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 550;
   font-size: 22px;
@@ -151,16 +169,16 @@ width: 34px;
 
 .softskills-container {
   display: flex;
-  flex-wrap: wrap;       
+  flex-wrap: wrap;
   gap: 16px;
   width: 100%;
-  padding: 0;   
-  margin-bottom: 50px;          
+  padding: 0;
+  margin-bottom: 50px;
 }
 
 .softskills-container .softskill {
   border-radius: 30px;
-  background: rgb(255,255,255,0.1);
+  background: rgb(255, 255, 255, 0.1);
   font-weight: 600;
   padding: 10px 18px;
   height: 34px;
@@ -170,15 +188,16 @@ width: 34px;
   white-space: nowrap;
   transition: transform 0.3s ease;
 }
-.softskills-container .softskill:hover{
+
+.softskills-container .softskill:hover {
   color: cyan;
   box-shadow: 0 0 10px rgba(60, 231, 255, 0.25);
-  cursor:default;
+  cursor: default;
   transform: scale(1.05);
 }
 
 
-footer{
+footer {
   opacity: 0;
   animation-fill-mode: forwards;
   transform: translateY(25px);
@@ -196,8 +215,10 @@ footer{
   color: #cbd5e1;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
 /* ============ LARGE TABLETS (<= 1024px) ============ */
 @media (max-width: 1024px) {
+
   .row1,
   .row2 {
     padding-left: 40px;
@@ -220,6 +241,7 @@ footer{
 
 /* ============ TABLETS (<= 900px) ============ */
 @media (max-width: 900px) {
+
   .row1,
   .row2 {
     flex-direction: column;
@@ -303,20 +325,36 @@ footer{
   animation-fill-mode: forwards;
 }
 
-.top { animation: fadedown 1s ease forwards; animation-delay: .1s; }
+.top {
+  animation: fadedown 1s ease forwards;
+  animation-delay: .1s;
+}
 
-.prog     { animation: fadeUp .9s ease forwards; animation-delay: .25s; }
-.frontend { animation: fadeUp .9s ease forwards; animation-delay: .35s; }
+.prog {
+  animation: fadeUp .9s ease forwards;
+  animation-delay: .25s;
+}
 
-.backend  { animation: fadeUp .9s ease forwards; animation-delay: .45s; }
-.learning { animation: fadeUp .9s ease forwards; animation-delay: .55s; }
+.frontend {
+  animation: fadeUp .9s ease forwards;
+  animation-delay: .35s;
+}
+
+.backend {
+  animation: fadeUp .9s ease forwards;
+  animation-delay: .45s;
+}
+
+.learning {
+  animation: fadeUp .9s ease forwards;
+  animation-delay: .55s;
+}
 
 .reveal {
   opacity: 0;
   transform: translateY(25px);
 }
+
 .reveal.show {
   animation: fadeUp 0.9s ease forwards;
 }
-
-

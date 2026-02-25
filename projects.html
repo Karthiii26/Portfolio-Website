@@ -17,7 +17,6 @@
 </head>
 
 <body>
-
   <div id="navbar"></div>
   <script>
     fetch("navbar.html")
@@ -182,6 +181,7 @@
       video.load();
 
       modal.style.display = "flex";
+      setTimeout(() => modal.classList.add("show"), 10);
       video.currentTime = 0;
       video.play();
     }
@@ -189,8 +189,11 @@
     function closeVideo() {
       const modal = document.getElementById("videoModal");
       const video = document.getElementById("demoVideo");
-      modal.style.display = "none";
-      video.pause();
+      modal.classList.remove("show");
+      setTimeout(() => {
+        modal.style.display = "none";
+        video.pause();
+      }, 400);
     }
   </script>
 </body>

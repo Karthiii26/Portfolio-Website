@@ -18,14 +18,29 @@ body {
 }
 
 @keyframes movedown {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(15px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(15px);
+  }
 }
 
 @keyframes moveup {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
 }
+
 .aboutme {
   display: flex;
   flex-direction: column;
@@ -58,23 +73,27 @@ body {
   object-fit: cover;
   width: 200px;
 }
+
 .image {
   position: relative;
   width: fit-content;
   margin: auto;
 }
+
 .rocket {
   position: absolute;
   top: -8%;
   right: -8%;
   animation: movedown 3s infinite;
 }
+
 .computer {
   position: absolute;
   bottom: 8%;
   left: -8%;
   animation: moveup 3s infinite;
 }
+
 .intro-text {
   display: flex;
   flex-direction: column;
@@ -168,7 +187,9 @@ body {
   transition: 0.3s;
   width: 80%;
 }
-.interests .title h2, .beyond .title h2{
+
+.interests .title h2,
+.beyond .title h2 {
   color: #b8c3d1;
   font-size: 16px;
   font-weight: 500;
@@ -247,7 +268,7 @@ body {
   border-color: rgba(60, 231, 255, 0.3);
   transform: translateY(-4px);
   box-shadow: 0 0 16px rgba(60, 231, 255, 0.18),
-              0 0 28px rgba(60, 231, 255, 0.12);
+    0 0 28px rgba(60, 231, 255, 0.12);
 }
 
 .timeline-card h3 {
@@ -270,23 +291,55 @@ body {
 }
 
 /* -----------------* ANIMATIONS------------------ */
-.aboutme{ animation: fadeUp 1s ease forwards; animation-delay: .2s;}
-.introcard .intro-text{ animation: toleft 1s ease forwards; animation-delay: .4s;}
-.introcard .image { animation: toright 1s ease forwards; animation-delay: .4s;}
-.locexpcard{ animation: fadeUp 1s ease forwards; animation-delay: .6s;}
-.interests, .beyond{animation: fadeUp 1s ease forwards; animation-delay: .6s;}
-.education-section{animation: fadeUp 1s ease forwards; animation-delay: .8s; }
-footer{
-    animation: fadeUp 1s ease forwards;
-    animation-delay: 1s;
+.aboutme {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: .2s;
 }
 
-.aboutme, .locexpcard, .education-section, .interests, .beyond, footer{
+.introcard .intro-text {
+  animation: toleft 1s ease forwards;
+  animation-delay: .4s;
+}
+
+.introcard .image {
+  animation: toright 1s ease forwards;
+  animation-delay: .4s;
+}
+
+.locexpcard {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: .6s;
+}
+
+.interests,
+.beyond {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: .6s;
+}
+
+.education-section {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: .8s;
+}
+
+footer {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.aboutme,
+.locexpcard,
+.education-section,
+.interests,
+.beyond,
+footer {
   opacity: 0;
   animation-fill-mode: forwards;
   transform: translateY(25px);
 }
-.introcard .intro-text, .introcard .image{
+
+.introcard .intro-text,
+.introcard .image {
   opacity: 0;
   animation-fill-mode: forwards;
   transform: translateX(25px);
@@ -316,6 +369,7 @@ footer {
     padding: 20px 40px;
   }
 }
+
 @media (max-width: 1024px) {
 
   .about-layout {
@@ -358,6 +412,7 @@ footer {
     text-align: center;
   }
 }
+
 @media (max-width: 780px) {
   .introcard {
     padding: 20px;
@@ -371,6 +426,7 @@ footer {
     font-size: 14px;
   }
 }
+
 @media (max-width: 650px) {
   .introcard img {
     height: 150px;
@@ -390,6 +446,7 @@ footer {
     margin-bottom: 8px;
   }
 }
+
 @media (max-width: 480px) {
   body {
     padding-top: 90px;
