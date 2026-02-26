@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perspectives</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="globeperspectives.css">
+    <link rel="stylesheet" href="navbar.css">
+    <script src="navbar.js"></script>
+    <link rel="icon" type="png" href="photos/logo.png">
+</head>
+
+<body>
+    <div class="loader-wrapper" id="loader">
+        <div class="loader"></div>
+    </div>
+    <div id="navbar"></div>
+    <script>
+        fetch("navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+                const current = location.pathname.split("/").pop();
+                document.querySelectorAll("#navbar a").forEach(link => {
+                    const href = link.getAttribute("href");
+                    if (href === current || (href === "index.html" && current === "")) {
+                        link.classList.add("active");
+                    }
+                });
+            });
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('fade-out');
+                document.body.classList.add('loaded');
+            }, 1500);
+        });
+    </script>
+
+    <div class="top">
+        <h1>Perspectives</h1>
+        <p>Exploring the world, gaining new insights, and broadening my horizons through educational journeys and
+            cultural exchanges.</p>
+    </div>
+
+    <div class="container">
+        <div class="perspective-card" style="animation-delay: 0.2s;">
+            <div class="card-image">
+                <div class="card-badge">GlobalXcelerate Program</div>
+                <img src="photos/coverimg.jpg" alt="Young Leaders Global Immersion Program" style="object-fit:fill;">
+            </div>
+            <div class="card-content">
+                <div class="duration">
+                    <img src="photos/calendar.svg" alt="calendar">
+                    <span>Jan 26 - Feb 2, 2026 | 8 Days</span>
+                </div>
+                <h2>Young Leaders Global Immersion: UAE Edition</h2>
+                <div class="description">
+                    <p>An intensive 8-day international journey across Dubai, Abu Dhabi, and Sharjah. This program
+                        bridged technical CSE education with global innovation ecosystems, focusing on AI, ML, and
+                        and modern industrial applications through academic masterclasses and industry engagement.</p>
+                </div>
+                <div class="highlights">
+                    <span class="highlight-tag">International Exposure</span>
+                    <span class="highlight-tag">GlobalXcelerate</span>
+                    <span class="highlight-tag">KIT Program</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="perspective-card" style="animation-delay: 0.3s;">
+            <div class="card-content full-width">
+                <h2>Phase 1: Academic Excellence @ Zayed University</h2>
+                <div class="description">
+                    <p>Attended four specialized masterclasses conducted by senior faculty from Zayed University
+                        across
+                        their <strong>Abu Dhabi and Dubai campuses</strong>.</p>
+                </div>
+
+                <div class="inner-grid two-cols">
+                    <div class="inner-card">
+                        <h4>Design Thinking Foundations</h4>
+                        <p class="location-tag">📍 Abu Dhabi Campus | Prof. Ahmed Shuhaiber</p>
+                        <p>Studied the Stanford Design Thinking model. Worked on real-life scenarios like structural
+                            innovations and patient experience design, emphasizing empathy-driven innovation.</p>
+                        <div class="reflection-block">
+                            <h5>Professional Reflection</h5>
+                            <p>I realized that rushing toward solutions often leads to superficial results, whereas
+                                structured thinking leads to meaningful innovation.</p>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <h4>Applied AI & ML Mastery</h4>
+                        <p class="location-tag">📍 Dubai Campus | Prof. Farhi Marir</p>
+                        <p>Explored data forms, clustering, and regression. Hands-on algorithms using Google Colab
+                            showcased how AI systems learn from patterns in complex data.</p>
+                        <div class="reflection-block">
+                            <h5>Professional Reflection</h5>
+                            <p>AI and ML are no longer abstract subjects but practical tools driving modern
+                                businesses.
+                                This session connected theory to real-world application.</p>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <h4>Strategic Info Systems</h4>
+                        <p class="location-tag">📍 Dubai Campus | Dr. Enas Musa Allozi</p>
+                        <p>Studied the evolution from simple automation to intelligent decision-support systems,
+                            utilizing data as a core strategic asset for competitive advantage.</p>
+                        <div class="reflection-block">
+                            <h5>Professional Reflection</h5>
+                            <p>Innovation begins with design thinking, AI provides the capability, and strategic
+                                systems
+                                enable the impact.</p>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <h4>UAE Leadership Framework</h4>
+                        <p class="location-tag">📍 Dubai Campus | Prof. Munir Majdalawieh</p>
+                        <p>Analyzed the UAE's strategic vision, focus on future-readiness, and innovation-driven
+                            policy
+                            that enables rapid national development.</p>
+                        <div class="reflection-block">
+                            <h5>Professional Reflection</h5>
+                            <p>This session illustrated how national progress is guided by long-term vision and
+                                adaptability—traits essential for a future-ready engineer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="perspective-card" style="animation-delay: 0.4s;">
+            <div class="card-content full-width">
+                <h2>Phase 2: Industry Impact & Experiential Learning</h2>
+
+                <div class="inner-grid">
+                    <div class="inner-card">
+                        <h4>Corporate & Startup Ecosystem</h4>
+                        <ul>
+                            <li><strong>Odoo Headquarters:</strong> Witnessed enterprise digital transformation
+                                through ERP systems, focusing on efficiency and transparency.</li>
+                            <li><strong>MBRIF & Sharjah Entrepreneurship:</strong> Gained exposure to the UAE's
+                                innovation landscape, startup support systems, and funding mechanisms.</li>
+                        </ul>
+                        <div class="reflection-block">
+                            <h5>Professional Reflection</h5>
+                            <p>Interacting with founders and observing national innovation drives boosted my
+                                confidence.
+                                I now have a realistic roadmap for building and scaling AI-based ventures.</p>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <h4>AIESEC Hackathon @ De Montfort University</h4>
+                        <p>A high-intensity Industry 4.0 challenge. Our team proposed standardized systems and
+                            ML-based advisory alerts for manufacturing scalability, prioritizing safety and user trust.
+                        </p>
+                        <div class="highlights" style="margin-top: auto; padding-top: 20px;">
+                            <span class="highlight-tag">Industry 4.0</span>
+                            <span class="highlight-tag">Smart Manufacturing</span>
+                            <span class="highlight-tag">Hackathon Recognition</span>
+                        </div>
+                        <div class="reflection-block">
+                            <h5>Professional Reflection</h5>
+                            <p>This challenge taught me that technology adoption depends on human factors and
+                                organizational readiness as much as it does on technical excellence.</p>
+                        </div>
+                    </div>
+                    <div class="inner-card">
+                        <h4>Hult International Business School</h4>
+                        <p class="location-tag">📍 Dubai Campus | Global Business Mastery</p>
+                        <ul>
+                            <li>Specialized session on global entrepreneurship.</li>
+                            <li>Explored disruptive innovation frameworks.</li>
+                            <li>Strategy for business in tech-driven economies.</li>
+                        </ul>
+                        <div class="reflection-block">
+                            <h5>Professional Reflection</h5>
+                            <p>This visit expanded my view on how technical solutions must align with global
+                                business
+                                models to create sustainable impact.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="carousel-wrapper" style="margin-top: 40px;">
+            <div class="carousel-container" id="uae-carousel">
+                <div class="carousel-slide active">
+                    <img src="photos/designthinking.jpeg" alt="Design Thinking">
+                    <div class="carousel-caption">
+                        <h4>Design Thinking</h4>
+                        <p>Design Thinking Workshop at Zayed University, Abu Dhabi</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="photos/aiml.jpeg" alt="AI & ML">
+                    <div class="carousel-caption">
+                        <h4>AI & ML</h4>
+                        <p>AI & ML Workshop at Zayed University, Dubai</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="photos/Odoo.jpeg" alt="Industry Insights">
+                    <div class="carousel-caption">
+                        <h4>Industry Insights</h4>
+                        <p>Exploring innovation at Odoo HQ, Dubai</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="photos/hackathon.jpeg" alt="Hackathon">
+                    <div class="carousel-caption">
+                        <h4>AISEC Hackathon</h4>
+                        <p>H4TF - Hackathon at De Montfort University, Dubai</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="photos/sharjah.webp" alt="Sharjah Entrepreneurship Festival">
+                    <div class="carousel-caption">
+                        <h4>SEF - 2026</h4>
+                        <p>Sharjah Entrepreneurship Festival at Sharjah, UAE</p>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <div class="carousel-dot active" data-index="0"></div>
+                    <div class="carousel-dot" data-index="1"></div>
+                    <div class="carousel-dot" data-index="2"></div>
+                    <div class="carousel-dot" data-index="3"></div>
+                    <div class="carousel-dot" data-index="4"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="certifications-section">
+            <h3>Program Certifications</h3>
+            <div class="cert-grid">
+                <div class="cert-card" onclick="openLightbox('photos/cert1.jpeg')">
+                    <div class="cert-thumbnail">
+                        <img src="photos/cert1.jpeg" alt="GlobalXcelerate Certificate">
+                    </div>
+                    <span>Young Leaders Program</span>
+                    <h4>GlobalXcelerate Certification</h4>
+                </div>
+                <div class="cert-card" onclick="openLightbox('photos/cert2.jpeg')">
+                    <div class="cert-thumbnail">
+                        <img src="photos/cert2.jpeg" alt="Zayed University Certificate">
+                    </div>
+                    <span>Zayed University</span>
+                    <h4>4-Day Academic Masterclass</h4>
+                </div>
+                <div class="cert-card" onclick="openLightbox('photos/cert3.png')">
+                    <div class="cert-thumbnail">
+                        <img src="photos/cert3.png" alt="Odoo Certificate">
+                    </div>
+                    <span>Industrial Engagement</span>
+                    <h4>Odoo Education Day</h4>
+                </div>
+                <div class="cert-card" onclick="openLightbox('photos/cert4.jpeg')">
+                    <div class="cert-thumbnail">
+                        <img src="photos/cert4.jpeg" alt="AIESEC Hackathon Certificate">
+                    </div>
+                    <span>AIESEC Hackathon</span>
+                    <h4>H4TF: Heading for the Future</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="report-section" style="border: none; background: transparent; padding: 20px 0; text-align: center;">
+            <div class="report-btn">
+                <div class="loading-dot"></div>
+                <span>Detailed Report — Coming Soon</span>
+            </div>
+        </div>
+
+        <div class="perspective-card conclusion-card" style="animation-delay: 0.5s;">
+            <div class="card-content full-width">
+                <p>"This immersion program was more than a study tour—it was a defining step in my development.
+                    The lessons in innovation, strategy, and cultural intelligence will guide my path as I
+                    specialize in
+                    AI and ML."</p>
+                <p class="author">— Karthikesh Ramanujam</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+        <img class="lightbox-content" id="lightbox-img" src="" alt="Certificate Full View">
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Karthikesh. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        const slideInterval = 4000;
+
+        function showSlide(index) {
+            if (!slides[index]) return;
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function nextSlide() {
+            let next = (currentSlide + 1) % slides.length;
+            showSlide(next);
+        }
+
+        let scrollInterval = setInterval(nextSlide, slideInterval);
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                clearInterval(scrollInterval);
+                showSlide(parseInt(dot.dataset.index));
+                scrollInterval = setInterval(nextSlide, slideInterval);
+            });
+        });
+        const carouselContainer = document.getElementById('uae-carousel');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', () => clearInterval(scrollInterval));
+            carouselContainer.addEventListener('mouseleave', () => {
+                clearInterval(scrollInterval);
+                scrollInterval = setInterval(nextSlide, slideInterval);
+            });
+        }
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+</body>
+</html>

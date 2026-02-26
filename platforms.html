@@ -18,6 +18,9 @@
 </head>
 
 <body>
+  <div class="loader-wrapper" id="loader">
+    <div class="loader"></div>
+  </div>
   <div id="navbar"></div>
   <script>
     fetch("navbar.html")
@@ -32,6 +35,14 @@
           }
         });
       });
+
+    // Hide loader after a short delay to ensure animation is visible
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      setTimeout(() => {
+        loader.classList.add('fade-out');
+      }, 700);
+    });
   </script>
 
 
@@ -55,7 +66,7 @@
       <div class="stats">
         <div class="stat-row">
           <span>Status</span>
-          <strong>100+ Problems Solved</strong>
+          <strong>200+ Problems Solved</strong>
         </div>
         <div class="stat-row">
           <span>Rating</span>
@@ -88,11 +99,11 @@
       <div class="stats">
         <div class="stat-row">
           <span>Status</span>
-          <strong>35+ Contests</strong>
+          <strong>40+ Contests</strong>
         </div>
         <div class="stat-row">
           <span>Rating</span>
-          <strong class="rating">1017</strong>
+          <strong class="rating">1080</strong>
         </div>
       </div>
 
@@ -124,7 +135,7 @@
         </div>
         <div class="stat-row">
           <span>Rating</span>
-          <strong class="rating">869</strong>
+          <strong class="rating">871</strong>
         </div>
       </div>
 

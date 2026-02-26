@@ -284,7 +284,6 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* ====== TABLETS (<= 1024px) ====== */
 @media (max-width: 1024px) {
   .row1 {
     padding: 0 30px;
@@ -302,7 +301,6 @@ footer {
   }
 }
 
-/* ====== MEDIUM SCREENS (<= 900px) ====== */
 @media (max-width: 900px) {
 
   .row1,
@@ -322,13 +320,11 @@ footer {
   }
 }
 
-/* ====== MOBILE (<= 650px) ====== */
 @media (max-width: 650px) {
   .top p {
     text-align: center;
   }
 
-  /* normal cards — full height */
   .leetcode,
   .codechef,
   .codeforces {
@@ -337,7 +333,6 @@ footer {
     min-height: 210px;
   }
 
-  /* Codolio — compact + row layout */
   .codolio {
     width: 100%;
     display: flex;
@@ -346,7 +341,6 @@ footer {
     gap: 14px;
     padding: 14px 18px;
     min-height: 110px;
-    /* ≈ half height */
   }
 
   .codolio .left {

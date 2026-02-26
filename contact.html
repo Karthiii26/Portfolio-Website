@@ -17,6 +17,9 @@
 </head>
 
 <body>
+  <div class="loader-wrapper" id="loader">
+    <div class="loader"></div>
+  </div>
   <div id="navbar"></div>
   <script>
     fetch("navbar.html")
@@ -31,6 +34,14 @@
           }
         });
       });
+
+    // Hide loader after a short delay to ensure animation is visible
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      setTimeout(() => {
+        loader.classList.add('fade-out');
+      }, 700);
+    });
   </script>
 
   <div class="top">
