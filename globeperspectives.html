@@ -24,7 +24,8 @@
             .then(res => res.text())
             .then(data => {
                 document.getElementById("navbar").innerHTML = data;
-                const current = location.pathname.split("/").pop();
+                const current = location.pathn
+                ame.split("/").pop();
                 document.querySelectorAll("#navbar a").forEach(link => {
                     const href = link.getAttribute("href");
                     if (href === current || (href === "index.html" && current === "")) {
@@ -288,7 +289,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2025 Karthikesh. All rights reserved.</p>
+        <p>&copy; 2026 Karthikesh. All rights reserved.</p>
     </footer>
 
     <script>
