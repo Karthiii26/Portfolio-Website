@@ -27,8 +27,8 @@
         if (!widget) return;
 
         try {
-            // 1. Get Location Coordinates (CORS-friendly HTTPS API)
-            const geoRes = await fetch("https://ipwho.is/");
+            // 1. Get Location Coordinates (Bulletproof Open API)
+            const geoRes = await fetch("https://get.geojs.io/v1/ip/geo.json");
             const geoData = await geoRes.json();
 
             const lat = geoData.latitude;
