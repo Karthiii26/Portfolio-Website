@@ -20,6 +20,18 @@
     </div>
     <div id="navbar"></div>
     <script>
+        fetch("navbar.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("navbar").innerHTML = data;
+                const current = location.pathname.split("/").pop();
+                document.querySelectorAll("#navbar a").forEach(link => {
+                    const href = link.getAttribute("href");
+                    if (href === current || (href === "index.html" && current === "")) {
+                        link.classList.add("active");
+                    }
+                });
+            });
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             setTimeout(() => {
