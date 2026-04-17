@@ -27,8 +27,8 @@
         if (!widget) return;
 
         try {
-            // 1. Get Location Coordinates (More accurate than just city name)
-            const geoRes = await fetch("https://freeipapi.com/api/json");
+            // 1. Get Location Coordinates (CORS-friendly HTTPS API)
+            const geoRes = await fetch("https://ipwho.is/");
             const geoData = await geoRes.json();
 
             const lat = geoData.latitude;
