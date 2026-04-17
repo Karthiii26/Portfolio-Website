@@ -28,13 +28,16 @@
 
         try {
             // 1. Get Location Coordinates (More accurate than just city name)
-            const ipRes = await fetch('http://ip-api.com/json/');
-            const loc = await ipRes.json();
+            const geoRes = await fetch("https://freeipapi.com/api/json");
+            const geoData = await geoRes.json();
+
+            const lat = geoData.latitude;
+            const lon = geoData.longitude;
             
-            if (!loc || !loc.lat || !loc.lon) throw new Error('Location detection failed');
+            if (!lat || !lon) throw new Error('Location detection failed');
 
             // 2. Get Weather using Coordinates
-            const weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${loc.lat}&lon=${loc.lon}&units=metric&appid=${WEATHER_API_KEY}`);
+            const weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`);
             if (!weatherRes.ok) throw new Error('Weather API unauthorized/offline');
             
             const data = await weatherRes.json();
