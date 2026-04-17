@@ -1,18 +1,7 @@
 <header class="navbar">
   <div class="logo">Portfolio</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="skills.html">Skills</a>
-    <a href="projects.html">Projects</a>
-    <a href="globeperspectives.html">Perspectives</a>
-    <a href="platforms.html">Platforms</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="hamburger">
-    <img src="photos/menu.svg" alt="hamburger" height="20px" width="20px" onclick="toggleMenu()">
-    <div class="menu">
+  <div class="main-nav-container">
+    <nav>
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="skills.html">Skills</a>
@@ -20,6 +9,23 @@
       <a href="globeperspectives.html">Perspectives</a>
       <a href="platforms.html">Platforms</a>
       <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <div id="nav-weather" class="weather-widget"></div>
+
+      <div class="hamburger">
+        <img src="photos/menu.svg" alt="hamburger" height="20px" width="20px" onclick="toggleMenu()">
+        <div class="menu">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="skills.html">Skills</a>
+          <a href="projects.html">Projects</a>
+          <a href="globeperspectives.html">Perspectives</a>
+          <a href="platforms.html">Platforms</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
     </div>
   </div>
   <div id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
@@ -28,15 +34,4 @@
       <path d="m18 15-6-6-6 6" />
     </svg>
   </div>
-</header>
-<script>
-  const current = location.pathname.split("/").pop();
-
-  document.querySelectorAll(".navbar a").forEach(link => {
-    const href = link.getAttribute("href");
-
-    if (href === current || (href === "index.html" && current === "")) {
-      link.classList.add("active");
-    }
-  });
-</script>
+</header>

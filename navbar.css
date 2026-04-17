@@ -12,7 +12,18 @@
   backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   animation: fadedown 1s ease forwards;
+}
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.main-nav-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
 }
 
 .logo {
@@ -188,9 +199,13 @@
 
   .hamburger {
     display: flex;
-    position: absolute;
-    right: 20px;
-    top: 18px;
+  }
+
+  .nav-right {
+    display: flex !important;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto; /* Pushes it to the right */
   }
 }
 
