@@ -62,6 +62,7 @@ window.addEventListener('scroll', () => {
         if (!document.getElementById('weather-script') && document.body) {
             const v = Date.now();
             
+            // Add Stylesheet
             const link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'weather.css?v=' + v;
@@ -79,25 +80,4 @@ window.addEventListener('scroll', () => {
     } else {
         document.addEventListener('DOMContentLoaded', doInject);
     }
-})();
-
-(function initHaptics() {
-    const canVibrate = 'vibrate' in navigator;
-    
-    function triggerTick(ms = 8) {
-        if (canVibrate) {
-            try {
-                navigator.vibrate(ms);
-            } catch (e) {
-            }
-        }
-    }
-    document.addEventListener('pointerdown', (e) => {
-        const interactive = e.target.closest('button, a, .btn, .github, .linkedin, .mail, .project-card, .skill-card');
-        
-        if (interactive) {
-            triggerTick(20);
-        }
-    }, { passive: true });
-
 })();

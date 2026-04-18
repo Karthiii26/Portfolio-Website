@@ -1,10 +1,11 @@
 {
-    // WARNING: Do NOT hardcode your API key here to avoid GitGuardian alerts and exposure.
-    // Instead, use a Vercel Serverless Function (created in api/weather.js).
-    // If you are testing locally with live-server, you'll need the key temporarily, but DO NOT commit it.
     const WEATHER_API_KEY = '';
+
     function startWeather() {
         initWeatherAutomation();
+        setInterval(() => {
+            initWeatherAutomation();
+        }, 10 * 60 * 1000); 
         
         if (!document.getElementById('nav-weather')) {
             const observer = new MutationObserver((mutations, obs) => {
@@ -26,39 +27,50 @@
 
     async function initWeatherAutomation() {
         const widget = document.getElementById('nav-weather');
-        if (!widget) {
-            return;
+        if (!widget) return;
+
+        const cached = localStorage.getItem('portfolio_weather');
+        if (cached) {
+            try {
+                const { temp, condition } = JSON.parse(cached);
+                updateNavWidget(temp, condition);
+                widget.classList.add('visible');
+            } catch (e) {
+                localStorage.removeItem('portfolio_weather');
+            }
         }
 
         try {
             const geoRes = await fetch("https://get.geojs.io/v1/ip/geo.json");
             const geoData = await geoRes.json();
-
             const lat = geoData.latitude;
             const lon = geoData.longitude;
             
             if (!lat || !lon) throw new Error('Location detection failed');
 
             let weatherRes;
-            
             if (WEATHER_API_KEY) {
-                // LOCAL DEVELOPMENT FALLBACK
                 weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`);
             } else {
-                // PRODUCTION SECURE ENDPOINT (Vercel)
                 weatherRes = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
             }
 
-            if (!weatherRes.ok) throw new Error('Weather API unauthorized/offline or Secure Endpoint failed');
+            if (!weatherRes.ok) throw new Error('Weather fetch failed');
             
             const data = await weatherRes.json();
+            const temp = Math.round(data.main.temp);
+            const condition = data.weather[0].main;
+            localStorage.setItem('portfolio_weather', JSON.stringify({
+                temp,
+                condition,
+                timestamp: Date.now()
+            }));
             
-            // 3. Display with smooth animation
-            updateNavWidget(Math.round(data.main.temp), data.weather[0].main);
-            setTimeout(() => widget.classList.add('visible'), 100);
+            updateNavWidget(temp, condition);
+            widget.classList.add('visible');
 
         } catch (e) {
-            widget.style.display = 'none'; // Completely remove from layout if error
+            if (!cached) widget.style.display = 'none';
         }
     }
 
@@ -69,7 +81,6 @@
         let iconHtml = '';
         const c = condition.toLowerCase();
 
-        // COMPREHENSIVE MAPPING
         if (c.includes('thunderstorm')) {
             iconHtml = '<div class="weather-icon"><div class="icon-thunder"></div></div>';
         } else if (c.includes('rain') || c.includes('drizzle')) {
@@ -83,7 +94,6 @@
         } else if (c.includes('cloud')) {
             iconHtml = '<div class="weather-icon"><div class="icon-cloud"></div></div>';
         } else {
-            // FALLBACK
             iconHtml = '<div class="weather-icon"><div class="icon-cloud"></div></div>';
         }
 
