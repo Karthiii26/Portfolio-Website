@@ -17,11 +17,24 @@ async function fetchLeetCode() {
     const ratingEl = document.getElementById('leetcode-rating');
     const solvedEl = document.getElementById('leetcode-solved');
 
+    const cached = sessionStorage.getItem('leetcode_data');
+    if (cached) {
+        const data = tryParseJSON(cached);
+        if (data) {
+            if (data.totalSolved) animateTextValue(solvedEl, 0, data.totalSolved, " Problems Solved");
+            if (data.contestRating) animateValue(ratingEl, 0, Math.round(data.contestRating));
+            return;
+        }
+    }
+
     try {
         const profileRes = await fetch(`https://alfa-leetcode-api.onrender.com/userProfile/${username}`);
         const profileData = await profileRes.json();
         
+        let savedData = {};
+        
         if (profileData && profileData.totalSolved) {
+            savedData.totalSolved = profileData.totalSolved;
             animateTextValue(solvedEl, 0, profileData.totalSolved, " Problems Solved");
         }
 
@@ -29,33 +42,54 @@ async function fetchLeetCode() {
         const contestData = await contestRes.json();
 
         if (contestData && contestData.contestRating) {
+            savedData.contestRating = contestData.contestRating;
             animateValue(ratingEl, 0, Math.round(contestData.contestRating));
         } else {
+            savedData.contestRating = 1389;
             animateValue(ratingEl, 0, 1389); 
         }
 
+        sessionStorage.setItem('leetcode_data', JSON.stringify(savedData));
+
     } catch (error) {
-        animateValue(ratingEl, 0, 1389); 
-        animateTextValue(solvedEl, 0, 150, " Problems Solved");
+        animateValue(ratingEl, 0, 1408);
+        animateTextValue(solvedEl, 0, 293, " Problems Solved");
     }
 }
 
 async function fetchCodeChef() {
     const username = 'kit28aiml034';
     const ratingEl = document.getElementById('codechef-rating');
+    const contestsEl = document.getElementById('codechef-contests');
+
+    const cached = sessionStorage.getItem('codechef_data');
+    if (cached) {
+        const data = tryParseJSON(cached);
+        if (data && data.rating) {
+            animateValue(ratingEl, 0, parseInt(data.rating));
+            if (data.contests && data.contests !== 'N/A') {
+                animateTextValue(contestsEl, 0, parseInt(data.contests), ' Contests');
+            }
+            return;
+        }
+    }
 
     try {
-        const response = await fetch(`https://codechef-api-faisalshohag.vercel.app/${username}`);
+        const response = await fetch(`/api/codechef?handle=${username}`);
         if (!response.ok) throw new Error('CodeChef API failed');
         const data = await response.json();
 
-        if (data && data.currentRating) {
-            animateValue(ratingEl, 0, data.currentRating);
+        if (data && data.rating) {
+            sessionStorage.setItem('codechef_data', JSON.stringify(data));
+            animateValue(ratingEl, 0, parseInt(data.rating));
+            if (data.contests && data.contests !== 'N/A') {
+                animateTextValue(contestsEl, 0, parseInt(data.contests), ' Contests');
+            }
         } else {
             throw new Error('Invalid data');
         }
     } catch (error) {
-        animateValue(ratingEl, 0, 1080); 
+        animateValue(ratingEl, 0, 1126);
     }
 }
 
@@ -64,6 +98,17 @@ async function fetchCodeforces() {
     const ratingEl = document.getElementById('codeforces-rating');
     const statusEl = document.getElementById('codeforces-status');
 
+    const cached = sessionStorage.getItem('codeforces_data');
+    if (cached) {
+        const data = tryParseJSON(cached);
+        if (data && data.rating) {
+            animateValue(ratingEl, 0, data.rating);
+            statusEl.textContent = "Active";
+            statusEl.style.opacity = '1';
+            return;
+        }
+    }
+
     try {
         const response = await fetch(`https://codeforces.com/api/user.info?handles=${username}`);
         const data = await response.json();
@@ -71,6 +116,7 @@ async function fetchCodeforces() {
         if (data.status === 'OK' && data.result.length > 0) {
             const user = data.result[0];
             if (user.rating) {
+                sessionStorage.setItem('codeforces_data', JSON.stringify({ rating: user.rating }));
                 animateValue(ratingEl, 0, user.rating);
             }
             statusEl.textContent = "Active";
@@ -81,7 +127,7 @@ async function fetchCodeforces() {
             }, 100);
         }
     } catch (error) {
-        animateValue(ratingEl, 0, 1000); 
+        animateValue(ratingEl, 0, 815);
     }
 }
 
@@ -99,6 +145,10 @@ function animateValue(obj, start, end, duration = 1000) {
     window.requestAnimationFrame(step);
 }
 function animateTextValue(obj, start, end, suffix, duration = 1200) {
+    if (isNaN(start) || isNaN(end)) {
+        obj.innerHTML = `${end}${suffix}`;
+        return;
+    }
     let startTimestamp = null;
     const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;

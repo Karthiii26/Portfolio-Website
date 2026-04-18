@@ -13,10 +13,14 @@ function toggleMenu() {
             .then(data => {
                 navContainer.innerHTML = data;
                 
-                const current = location.pathname.split("/").pop() || "index.html";
+                const currentPath = location.pathname.split("/").pop() || "index";
+                const currentName = currentPath.replace(".html", "");
+                
                 document.querySelectorAll("#navbar nav a, #navbar .menu a").forEach(link => {
                     const href = link.getAttribute("href");
-                    if (href === current || (href === "index.html" && current === "")) {
+                    const hrefName = href.replace(".html", "");
+                    
+                    if (hrefName === currentName || (hrefName === "index" && currentName === "")) {
                         link.classList.add("active");
                     }
                 });
@@ -75,28 +79,5 @@ window.addEventListener('scroll', () => {
         doInject();
     } else {
         document.addEventListener('DOMContentLoaded', doInject);
-    }
-})();
-
-// ENVIRONMENT AWARE: Battery Saver Mode
-(async function initBatterySaver() {
-    if ('getBattery' in navigator) {
-        try {
-            const battery = await navigator.getBattery();
-            const checkBattery = () => {
-                // If unplugged and at or below 20%
-                if (!battery.charging && battery.level <= 0.20) {
-                    document.body.classList.add('power-save-mode');
-                } else {
-                    document.body.classList.remove('power-save-mode');
-                }
-            };
-            
-            checkBattery();
-            battery.addEventListener('chargingchange', checkBattery);
-            battery.addEventListener('levelchange', checkBattery);
-        } catch(e) {
-            console.error('Battery API not supported in this environment');
-        }
     }
 })();

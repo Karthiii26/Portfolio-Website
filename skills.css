@@ -75,6 +75,21 @@ body {
   transform: translateY(0);
 }
 
+/* Card entrance animation on page load */
+.prog, .frontend, .backend, .learning {
+  opacity: 0;
+  animation: cardFadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.prog      { animation-delay: 1.0s; }
+.frontend  { animation-delay: 1.15s; }
+.backend   { animation-delay: 1.3s; }
+.learning  { animation-delay: 1.45s; }
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(32px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)  scale(1); }
+}
+
 .prog:hover, .frontend:hover, .backend:hover, .learning:hover {
   transform: translateY(-6px) scale(1.01);
   border-color: rgba(60, 231, 255, .35);
@@ -175,10 +190,6 @@ body {
 }
 
 .top { animation: fadeUp 1s ease forwards; }
-.prog { animation-delay: .2s; }
-.frontend { animation-delay: .3s; }
-.backend { animation-delay: .4s; }
-.learning { animation-delay: .5s; }
 
 footer {
   width: 100%;
