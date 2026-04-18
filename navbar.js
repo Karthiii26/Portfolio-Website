@@ -62,7 +62,6 @@ window.addEventListener('scroll', () => {
         if (!document.getElementById('weather-script') && document.body) {
             const v = Date.now();
             
-            // Add Stylesheet
             const link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'weather.css?v=' + v;
@@ -97,7 +96,7 @@ window.addEventListener('scroll', () => {
         const interactive = e.target.closest('button, a, .btn, .github, .linkedin, .mail, .project-card, .skill-card');
         
         if (interactive) {
-            triggerTick(8);
+            triggerTick(20);
         }
     }, { passive: true });
 
