@@ -81,3 +81,24 @@ window.addEventListener('scroll', () => {
         document.addEventListener('DOMContentLoaded', doInject);
     }
 })();
+
+(function initHaptics() {
+    const canVibrate = 'vibrate' in navigator;
+    
+    function triggerTick(ms = 8) {
+        if (canVibrate) {
+            try {
+                navigator.vibrate(ms);
+            } catch (e) {
+            }
+        }
+    }
+    document.addEventListener('pointerdown', (e) => {
+        const interactive = e.target.closest('button, a, .btn, .github, .linkedin, .mail, .project-card, .skill-card');
+        
+        if (interactive) {
+            triggerTick(8);
+        }
+    }, { passive: true });
+
+})();
