@@ -4,17 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchCodeforces();
 });
 
+let isSyncing = false;
+
 window.addEventListener('load', () => {
     setTimeout(checkAndShowToast, 1200);
 });
 
 function checkAndShowToast() {
     const hasBeenShown = sessionStorage.getItem('platforms_toast_shown');
+    
     const leetMissing = !sessionStorage.getItem('leetcode_data');
     const chefMissing = !sessionStorage.getItem('codechef_data');
     const forcesMissing = !sessionStorage.getItem('codeforces_data');
 
-    if (!hasBeenShown && (leetMissing || chefMissing || forcesMissing)) {
+    if (!hasBeenShown && (isSyncing || leetMissing || chefMissing || forcesMissing)) {
         if (typeof showToast === 'function') {
             showToast("Syncing coding profiles...", 3500);
         }
@@ -44,6 +47,8 @@ async function fetchLeetCode() {
             return;
         }
     }
+
+    isSyncing = true;
 
     try {
         const profileRes = await fetch(`https://alfa-leetcode-api.onrender.com/userProfile/${username}`);
@@ -92,6 +97,8 @@ async function fetchCodeChef() {
         }
     }
 
+    isSyncing = true;
+
     try {
         const response = await fetch(`/api/codechef?handle=${username}`);
         if (!response.ok) throw new Error('CodeChef API failed');
@@ -126,6 +133,8 @@ async function fetchCodeforces() {
             return;
         }
     }
+
+    isSyncing = true;
 
     try {
         const response = await fetch(`https://codeforces.com/api/user.info?handles=${username}`);
