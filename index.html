@@ -32,11 +32,12 @@
   </script>
 
   <section id="home" class="hero">
-    <h4><span class="wave">👋</span>Welcome to my portfolio</h4>
+    <h4><span class="wave">👋</span> <span id="greeting-text">Welcome to my portfolio</span></h4>
     <div class="name">
       <h1>Hi, I'm <span class="name">Karthikesh</span></h1>
     </div>
     <p>
+
       I design and build intelligent systems using AI and modern web technologies.
       Passionate about problem solving, learning, and clean development.
     </p>
@@ -61,9 +62,33 @@
     </div>
 
   </section>
+  
   <footer>
     <p>&copy; 2026 Karthikesh. All rights reserved.</p>
   </footer>
+
+  <script>
+    function setDynamicGreeting() {
+      const hour = new Date().getHours();
+      const greetingElement = document.getElementById('greeting-text');
+      
+      if (!greetingElement) return;
+
+      if (hour >= 5 && hour < 12) {
+        greetingElement.innerText = "Good morning! ☕";
+      } else if (hour >= 12 && hour < 17) {
+        greetingElement.innerText = "Good afternoon! ☀️";
+      } else if (hour >= 17 && hour < 22) {
+        greetingElement.innerText = "Good evening! 🌆";
+      } else {
+        greetingElement.innerText = "Late night coding? Me too 🦉";
+      }
+    }
+    
+    // Run immediately
+    setDynamicGreeting();
+  </script>
 </body>
+
 
 </html>
