@@ -53,6 +53,7 @@ body.loaded .top {
     flex-direction: column;
     gap: 40px;
     flex: 1; /* Pushes footer down */
+    margin-bottom: 80px; /* Gap after content */
 }
 
 .perspective-card {

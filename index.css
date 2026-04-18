@@ -24,7 +24,8 @@ body {
 
 .hero {
   flex: 1; /* This pushes the footer down */
-  min-height: calc(100vh - 120px); /* Reserved space to prevent jumping */
+  margin-bottom: 60px; /* Gap after content */
+  min-height: calc(100vh - 200px); /* Reserved space to prevent jumping */
   padding: 120px 0;
   display: flex;
   flex-direction: column;

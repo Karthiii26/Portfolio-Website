@@ -22,7 +22,6 @@ body {
 
 .top {
   display: flex;
-  flex: 1; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -42,6 +41,8 @@ body {
 
 .container {
   display: grid;
+  flex: 1; /* Pushes footer down */
+  margin-bottom: 80px; /* Gap after content */
   grid-template-columns: 1fr 1fr;
   margin-top: 30px;
   padding: 0 80px;
@@ -163,10 +164,16 @@ button img {
   background: rgba(60, 231, 255, 0.1);
   width: 50px;
   height: 50px;
+  flex-shrink: 0; /* Prevent icon from squashing on mobile */
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.contact .icon img {
+  width: 24px;
+  height: 24px;
 }
 
 .contact .title {
@@ -191,7 +198,8 @@ button img {
 }
 
 .email,
-.location {
+.location,
+.availability {
   margin-bottom: 20px;
 }
 
@@ -256,6 +264,7 @@ footer {
   align-items: center;
   color: #cbd5e1;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  
 }
 
 

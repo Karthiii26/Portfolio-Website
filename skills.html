@@ -8,7 +8,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="skills.css">
+  <link rel="stylesheet" href="skills.css?v=1.2">
   <link rel="stylesheet" href="navbar.css">
   <script src="navbar.js"></script>
   <link rel="icon" type="png" href="photos/logo.png">
@@ -21,7 +21,6 @@
   </div>
   <div id="navbar"></div>
   <script>
-    // Hide loader after a short delay to ensure animation is visible
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader');
       setTimeout(() => {
@@ -83,15 +82,25 @@
     <div class="softskills reveal">
       <h1>Soft Skills</h1>
       <div class="softskills-container">
-        <p class="softskill">Communication</p>
-        <p class="softskill">Teamwork</p>
-        <p class="softskill">Problem-solving</p>
-        <p class="softskill">Time management</p>
-        <p class="softskill">Adaptability</p>
-        <p class="softskill">Technical Presentation</p>
-
-
-
+        <div class="marquee-content">
+          <p class="softskill">Communication</p>
+          <p class="softskill">Teamwork</p>
+          <p class="softskill">Problem-solving</p>
+          <p class="softskill">Time management</p>
+          <p class="softskill">Adaptability</p>
+          <p class="softskill">Technical Presentation</p>
+          <p class="softskill">Analytical Thinking</p>
+          <p class="softskill">Critical Thinking</p>
+          <!-- Duplicated for seamless loop -->
+          <p class="softskill">Communication</p>
+          <p class="softskill">Teamwork</p>
+          <p class="softskill">Problem-solving</p>
+          <p class="softskill">Time management</p>
+          <p class="softskill">Adaptability</p>
+          <p class="softskill">Technical Presentation</p>
+          <p class="softskill">Analytical Thinking</p>
+          <p class="softskill">Critical Thinking</p>
+        </div>
       </div>
     </div>
   </div>

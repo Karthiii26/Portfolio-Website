@@ -22,7 +22,6 @@ body {
 
 .top {
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -43,8 +42,9 @@ body {
 .container {
   width: 100%;
   max-width: 950px;
-  margin: 0 auto 60px;
+  margin: 0 auto 150px; 
   display: flex;
+  flex: 1; 
   flex-direction: column;
   gap: 26px;
 }
@@ -347,8 +347,7 @@ body {
 .p3,
 .upcoming,
 .comingsoon,
-.github,
-footer {
+.github {
   opacity: 0;
   transform: translateY(25px);
   animation: fadeUp 1s ease-out forwards;
@@ -381,9 +380,6 @@ footer {
   animation-delay: .65s;
 }
 
-footer {
-  animation-delay: .75s;
-}
 
 footer {
   width: 100%;
@@ -394,6 +390,8 @@ footer {
     radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.12), transparent 70%),
     #050B18;
   display: flex;
+  opacity: 1; /* Ensure visible without animation */
+  transform: none;
   justify-content: center;
   align-items: center;
   color: #cbd5e1;

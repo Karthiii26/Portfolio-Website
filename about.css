@@ -65,9 +65,17 @@ body {
 
 .introcard {
   display: flex;
-  flex: 1; /* Pushes footer down */
+  flex-shrink: 0; /* Ensures it doesn't shrink when content below grows */
   gap: 60px;
   padding: 30px 100px;
+}
+
+.about-layout {
+  display: grid;
+  flex: 1; /* Pushes footer down */
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto 150px; /* Centered with a large bottom margin */
+  padding: 0 80px;
 }
 
 .introcard img {
@@ -118,12 +126,6 @@ body {
   line-height: 1.5;
 }
 
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: auto;
-  padding: 0 80px;
-}
 
 .left-content {
   display: flex;
@@ -326,17 +328,12 @@ body {
   animation-delay: .8s;
 }
 
-footer {
-  animation: fadeUp 1s ease forwards;
-  animation-delay: 1s;
-}
 
 .aboutme,
 .locexpcard,
 .education-section,
 .interests,
-.beyond,
-footer {
+.beyond {
   opacity: 0;
   animation-fill-mode: forwards;
   transform: translateY(25px);
@@ -358,6 +355,8 @@ footer {
     radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.12), transparent 70%),
     #050B18;
   display: flex;
+  opacity: 1; /* Ensure visible without animation */
+  transform: none;
   justify-content: center;
   align-items: center;
   color: #cbd5e1;
