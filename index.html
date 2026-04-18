@@ -79,13 +79,24 @@
       } else if (hour >= 12 && hour < 17) {
         greetingElement.innerText = "Good afternoon! ☀️";
       } else if (hour >= 17 && hour < 22) {
-        greetingElement.innerText = "Good evening! 🌆";
+        greetingElement.innerText = "Good evening!";
       } else {
         greetingElement.innerText = "Late night coding? Me too 🦉";
       }
+
+      greetingElement.style.transition = "opacity 0.6s ease";
+      
+      setTimeout(() => {
+        greetingElement.style.opacity = "0"; 
+        
+        setTimeout(() => {
+          greetingElement.innerText = "Welcome to my portfolio"; 
+          greetingElement.style.opacity = "1"; 
+        }, 600); 
+        
+      }, 2500);
     }
     
-    // Run immediately
     setDynamicGreeting();
   </script>
 </body>
