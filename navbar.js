@@ -62,7 +62,6 @@ window.addEventListener('scroll', () => {
         if (!document.getElementById('weather-script') && document.body) {
             const v = Date.now();
             
-            // Add Stylesheet
             const link = document.createElement('link');
             link.rel = 'stylesheet';
             link.href = 'weather.css?v=' + v;
@@ -81,3 +80,32 @@ window.addEventListener('scroll', () => {
         document.addEventListener('DOMContentLoaded', doInject);
     }
 })();
+
+window.showToast = function(message, duration = 3000) {
+    let container = document.querySelector('.toast-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+    }
+
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.style.setProperty('--duration', `${duration}ms`);
+    toast.innerHTML = `
+        <div class="toast-loader"></div>
+        <span>${message}</span>
+        <div class="toast-progress"></div>
+    `;
+    container.appendChild(toast);
+
+    requestAnimationFrame(() => {
+        toast.classList.add('show');
+    });
+    setTimeout(() => {
+        if (toast) {
+            toast.classList.remove('show');
+            setTimeout(() => toast.remove(), 700);
+        }
+    }, duration);
+};

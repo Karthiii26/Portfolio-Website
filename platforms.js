@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchCodeforces();
 });
 
-// Show toast only after the page loader has finished (approx 1.2s)
 window.addEventListener('load', () => {
     setTimeout(checkAndShowToast, 1200);
 });
@@ -16,28 +15,10 @@ function checkAndShowToast() {
     const forcesMissing = !sessionStorage.getItem('codeforces_data');
 
     if (!hasBeenShown && (leetMissing || chefMissing || forcesMissing)) {
-        const container = document.createElement('div');
-        container.className = 'toast-container';
-        container.innerHTML = `
-            <div class="toast">
-                <div class="toast-loader"></div>
-                <span>Syncing coding profiles...</span>
-                <div class="toast-progress"></div>
-            </div>
-        `;
-        document.body.appendChild(container);
-        setTimeout(() => {
-            const toast = container.querySelector('.toast');
-            if (toast) toast.classList.add('show');
-        }, 100);
+        if (typeof showToast === 'function') {
+            showToast("Syncing coding profiles...", 3500);
+        }
         sessionStorage.setItem('platforms_toast_shown', 'true');
-        setTimeout(() => {
-            const toast = container.querySelector('.toast');
-            if (toast) {
-                toast.classList.remove('show');
-                setTimeout(() => container.remove(), 600);
-            }
-        }, 3500);
     }
 }
 
