@@ -77,3 +77,26 @@ window.addEventListener('scroll', () => {
         document.addEventListener('DOMContentLoaded', doInject);
     }
 })();
+
+// ENVIRONMENT AWARE: Battery Saver Mode
+(async function initBatterySaver() {
+    if ('getBattery' in navigator) {
+        try {
+            const battery = await navigator.getBattery();
+            const checkBattery = () => {
+                // If unplugged and at or below 20%
+                if (!battery.charging && battery.level <= 0.20) {
+                    document.body.classList.add('power-save-mode');
+                } else {
+                    document.body.classList.remove('power-save-mode');
+                }
+            };
+            
+            checkBattery();
+            battery.addEventListener('chargingchange', checkBattery);
+            battery.addEventListener('levelchange', checkBattery);
+        } catch(e) {
+            console.error('Battery API not supported in this environment');
+        }
+    }
+})();

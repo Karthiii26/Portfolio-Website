@@ -321,3 +321,19 @@ body.is-scrolling ::-webkit-scrollbar-thumb {
   opacity: 0 !important;
   transition: opacity 0.5s ease-out !important;
 }
+
+/* === ENVIRONMENT AWARE: BATTERY SAVER MODE === */
+/* Automatically scales back graphics and stops animation if the user's laptop/phone is low on battery */
+body.power-save-mode * {
+    animation: none !important;
+    transition: none !important;
+}
+
+body.power-save-mode {
+    background: #050B18 !important; /* Removes heavy radial gradients */
+    box-shadow: none !important;
+}
+
+body.power-save-mode .marquee-content {
+    animation-play-state: paused !important; /* Freezes marquee */
+}
