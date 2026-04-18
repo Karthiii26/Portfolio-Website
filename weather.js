@@ -25,51 +25,39 @@
     }
 
     async function initWeatherAutomation() {
-        console.log('Weather feature: Initializing weather automation...');
         const widget = document.getElementById('nav-weather');
         if (!widget) {
-            console.log('Weather feature: Widget #nav-weather not found in DOM.');
             return;
         }
 
         try {
-            console.log('Weather feature: Fetching location coordinates...');
             const geoRes = await fetch("https://get.geojs.io/v1/ip/geo.json");
             const geoData = await geoRes.json();
 
             const lat = geoData.latitude;
             const lon = geoData.longitude;
-            console.log(`Weather feature: Location detected - Lat: ${lat}, Lon: ${lon}`);
             
             if (!lat || !lon) throw new Error('Location detection failed');
 
-            console.log('Weather feature: Fetching weather data...');
             let weatherRes;
             
             if (WEATHER_API_KEY) {
                 // LOCAL DEVELOPMENT FALLBACK
-                console.log('Weather feature: Using local API key fallback...');
                 weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`);
             } else {
                 // PRODUCTION SECURE ENDPOINT (Vercel)
-                console.log('Weather feature: Using secure backend endpoint...');
                 weatherRes = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
             }
 
             if (!weatherRes.ok) throw new Error('Weather API unauthorized/offline or Secure Endpoint failed');
             
             const data = await weatherRes.json();
-            console.log('Weather feature: Weather data received:', data);
-            console.log(`Weather feature: Current condition - ${data.weather[0].main} (${data.weather[0].description})`);
-            console.log(`Weather feature: Current temperature - ${Math.round(data.main.temp)}°C`);
             
             // 3. Display with smooth animation
             updateNavWidget(Math.round(data.main.temp), data.weather[0].main);
             setTimeout(() => widget.classList.add('visible'), 100);
 
         } catch (e) {
-            console.error('Weather feature error:', e.message);
-            console.log('Weather automation hidden due to error or offline status.');
             widget.style.display = 'none'; // Completely remove from layout if error
         }
     }
