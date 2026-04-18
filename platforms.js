@@ -160,7 +160,8 @@ async function fetchCodeforces() {
 
 function animateValue(obj, start, end, duration = 1000) {
     if (isNaN(start) || isNaN(end) || start === end) {
-        obj.innerHTML = end; return;
+        obj.innerHTML = isNaN(end) ? (obj.dataset.fallback || "0") : end; 
+        return;
     }
     let startTimestamp = null;
     const step = (timestamp) => {
@@ -173,7 +174,7 @@ function animateValue(obj, start, end, duration = 1000) {
 }
 function animateTextValue(obj, start, end, suffix, duration = 1200) {
     if (isNaN(start) || isNaN(end)) {
-        obj.innerHTML = `${end}${suffix}`;
+        obj.innerHTML = isNaN(end) ? (obj.dataset.fallback || end) : `${end}${suffix}`;
         return;
     }
     let startTimestamp = null;
