@@ -1,6 +1,16 @@
 {
     const WEATHER_API_KEY = '';
 
+    function mapWmoCodeToCondition(code) {
+        if (code === 0) return 'clear';
+        if (code >= 1 && code <= 3) return 'cloud';
+        if (code === 45 || code === 48) return 'haze';
+        if ((code >= 51 && code <= 55) || (code >= 61 && code <= 65) || (code >= 80 && code <= 82)) return 'rain';
+        if (code >= 71 && code <= 77) return 'snow';
+        if (code >= 95 && code <= 99) return 'thunderstorm';
+        return 'cloud';
+    }
+
     function startWeather() {
         initWeatherAutomation();
         setInterval(() => {
@@ -32,34 +42,61 @@
         const cached = localStorage.getItem('portfolio_weather');
         if (cached) {
             try {
-                const { temp, condition } = JSON.parse(cached);
+                const { temp, condition, timestamp } = JSON.parse(cached);
                 updateNavWidget(temp, condition);
                 widget.classList.add('visible');
+                
+                // If cache is less than 15 minutes old, skip refetching
+                if (timestamp && (Date.now() - timestamp < 15 * 60 * 1000)) {
+                    return;
+                }
             } catch (e) {
                 localStorage.removeItem('portfolio_weather');
             }
         }
 
         try {
-            const geoRes = await fetch("https://get.geojs.io/v1/ip/geo.json");
-            const geoData = await geoRes.json();
-            const lat = geoData.latitude;
-            const lon = geoData.longitude;
+            let lat = 13.0827; // Default to Chennai
+            let lon = 80.2707;
             
-            if (!lat || !lon) throw new Error('Location detection failed');
-
-            let weatherRes;
-            if (WEATHER_API_KEY) {
-                weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`);
-            } else {
-                weatherRes = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
+            try {
+                const geoRes = await fetch("https://get.geojs.io/v1/ip/geo.json");
+                if (geoRes.ok) {
+                    const geoData = await geoRes.json();
+                    if (geoData.latitude && geoData.longitude) {
+                        lat = geoData.latitude;
+                        lon = geoData.longitude;
+                    }
+                }
+            } catch (geoError) {
+                console.warn("Geolocation failed, using default location:", geoError);
             }
 
-            if (!weatherRes.ok) throw new Error('Weather fetch failed');
-            
-            const data = await weatherRes.json();
-            const temp = Math.round(data.main.temp);
-            const condition = data.weather[0].main;
+            let temp, condition;
+            try {
+                let weatherRes;
+                if (WEATHER_API_KEY) {
+                    weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${WEATHER_API_KEY}`);
+                } else {
+                    weatherRes = await fetch(`/api/weather?lat=${lat}&lon=${lon}`);
+                }
+
+                if (!weatherRes.ok) throw new Error('Primary weather API returned non-OK');
+                
+                const data = await weatherRes.json();
+                temp = Math.round(data.main.temp);
+                condition = data.weather[0].main;
+            } catch (primaryError) {
+                console.warn("Primary weather API failed, trying Open-Meteo fallback:", primaryError);
+                const fallbackRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+                if (!fallbackRes.ok) throw new Error('All weather APIs failed');
+                
+                const data = await fallbackRes.json();
+                temp = Math.round(data.current_weather.temperature);
+                const code = data.current_weather.weathercode;
+                condition = mapWmoCodeToCondition(code);
+            }
+
             localStorage.setItem('portfolio_weather', JSON.stringify({
                 temp,
                 condition,
@@ -70,6 +107,7 @@
             widget.classList.add('visible');
 
         } catch (e) {
+            console.error("Weather automation failed completely:", e);
             if (!cached) widget.style.display = 'none';
         }
     }

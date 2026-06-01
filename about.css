@@ -224,16 +224,21 @@ body {
 }
 
 .right-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   width: 100%;
 }
 
-.education-section {
+.education-section,
+.experience-section {
   display: flex;
   flex-direction: column;
   gap: 30px;
 }
 
-.edu-header {
+.edu-header,
+.exp-header {
   margin-top: 15px;
   display: flex;
   gap: 8px;
@@ -323,7 +328,8 @@ body {
   animation-delay: .6s;
 }
 
-.education-section {
+.education-section,
+.experience-section {
   animation: fadeUp 1s ease forwards;
   animation-delay: .8s;
 }
@@ -332,6 +338,7 @@ body {
 .aboutme,
 .locexpcard,
 .education-section,
+.experience-section,
 .interests,
 .beyond {
   opacity: 0;
