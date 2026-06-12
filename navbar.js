@@ -81,7 +81,7 @@ window.addEventListener('scroll', () => {
     }
 })();
 
-window.showToast = function(message, duration = 3000) {
+window.showToast = function(message, duration = 2500) {
     let container = document.querySelector('.toast-container');
     if (!container) {
         container = document.createElement('div');
