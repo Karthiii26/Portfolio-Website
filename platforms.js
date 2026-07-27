@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let isSyncing = false;
+const PLATFORM_CACHE_TTL = 6 * 60 * 60 * 1000;
 
 window.addEventListener('load', () => {
     setTimeout(checkAndShowToast, 1200);
@@ -13,9 +14,9 @@ window.addEventListener('load', () => {
 function checkAndShowToast() {
     const hasBeenShown = sessionStorage.getItem('platforms_toast_shown');
     
-    const leetMissing = !sessionStorage.getItem('leetcode_data');
-    const chefMissing = !sessionStorage.getItem('codechef_data');
-    const forcesMissing = !sessionStorage.getItem('codeforces_data');
+    const leetMissing = !getCachedPlatformData('leetcode_data');
+    const chefMissing = !getCachedPlatformData('codechef_data');
+    const forcesMissing = !getCachedPlatformData('codeforces_data');
 
     if (!hasBeenShown && (isSyncing || leetMissing || chefMissing || forcesMissing)) {
         if (typeof showToast === 'function') {
@@ -33,19 +34,36 @@ function tryParseJSON(str) {
     }
 }
 
+function getCachedPlatformData(key) {
+    const cached = localStorage.getItem(key);
+    if (!cached) return null;
+
+    const data = tryParseJSON(cached);
+    if (!data || !data.timestamp || Date.now() - data.timestamp > PLATFORM_CACHE_TTL) {
+        localStorage.removeItem(key);
+        return null;
+    }
+
+    return data.value;
+}
+
+function setCachedPlatformData(key, value) {
+    localStorage.setItem(key, JSON.stringify({
+        value,
+        timestamp: Date.now()
+    }));
+}
+
 async function fetchLeetCode() {
     const username = 'Karthii_26';
     const ratingEl = document.getElementById('leetcode-rating');
     const solvedEl = document.getElementById('leetcode-solved');
 
-    const cached = sessionStorage.getItem('leetcode_data');
+    const cached = getCachedPlatformData('leetcode_data');
     if (cached) {
-        const data = tryParseJSON(cached);
-        if (data) {
-            if (data.totalSolved) animateTextValue(solvedEl, 0, data.totalSolved, " Problems Solved");
-            if (data.contestRating) animateValue(ratingEl, 0, Math.round(data.contestRating));
-            return;
-        }
+        if (cached.totalSolved) animateTextValue(solvedEl, 0, cached.totalSolved, " Problems Solved");
+        if (cached.contestRating) animateValue(ratingEl, 0, Math.round(cached.contestRating));
+        return;
     }
 
     isSyncing = true;
@@ -72,7 +90,7 @@ async function fetchLeetCode() {
             animateValue(ratingEl, 0, 1389); 
         }
 
-        sessionStorage.setItem('leetcode_data', JSON.stringify(savedData));
+        setCachedPlatformData('leetcode_data', savedData);
 
     } catch (error) {
         animateValue(ratingEl, 0, 1408);
@@ -85,16 +103,15 @@ async function fetchCodeChef() {
     const ratingEl = document.getElementById('codechef-rating');
     const contestsEl = document.getElementById('codechef-contests');
 
-    const cached = sessionStorage.getItem('codechef_data');
+    const cached = getCachedPlatformData('codechef_data');
     if (cached) {
-        const data = tryParseJSON(cached);
-        if (data && data.rating) {
-            animateValue(ratingEl, 0, parseInt(data.rating));
-            if (data.contests && data.contests !== 'N/A') {
-                animateTextValue(contestsEl, 0, parseInt(data.contests), ' Contests');
+        if (cached.rating) {
+            animateValue(ratingEl, 0, parseInt(cached.rating));
+            if (cached.contests && cached.contests !== 'N/A') {
+                animateTextValue(contestsEl, 0, parseInt(cached.contests), ' Contests');
             }
-            return;
         }
+        return;
     }
 
     isSyncing = true;
@@ -105,7 +122,7 @@ async function fetchCodeChef() {
         const data = await response.json();
 
         if (data && data.rating) {
-            sessionStorage.setItem('codechef_data', JSON.stringify(data));
+            setCachedPlatformData('codechef_data', data);
             animateValue(ratingEl, 0, parseInt(data.rating));
             if (data.contests && data.contests !== 'N/A') {
                 animateTextValue(contestsEl, 0, parseInt(data.contests), ' Contests');
@@ -123,15 +140,14 @@ async function fetchCodeforces() {
     const ratingEl = document.getElementById('codeforces-rating');
     const statusEl = document.getElementById('codeforces-status');
 
-    const cached = sessionStorage.getItem('codeforces_data');
+    const cached = getCachedPlatformData('codeforces_data');
     if (cached) {
-        const data = tryParseJSON(cached);
-        if (data && data.rating) {
-            animateValue(ratingEl, 0, data.rating);
+        if (cached.rating) {
+            animateValue(ratingEl, 0, cached.rating);
             statusEl.textContent = "Active";
             statusEl.style.opacity = '1';
-            return;
         }
+        return;
     }
 
     isSyncing = true;
@@ -143,7 +159,7 @@ async function fetchCodeforces() {
         if (data.status === 'OK' && data.result.length > 0) {
             const user = data.result[0];
             if (user.rating) {
-                sessionStorage.setItem('codeforces_data', JSON.stringify({ rating: user.rating }));
+                setCachedPlatformData('codeforces_data', { rating: user.rating });
                 animateValue(ratingEl, 0, user.rating);
             }
             statusEl.textContent = "Active";
