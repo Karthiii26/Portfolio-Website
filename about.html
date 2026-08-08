@@ -121,16 +121,17 @@
                     <div class="timeline-row">
                         <span class="timeline-badge">Aug 2026 - Present</span>
                         <div class="timeline-card">
-                            <h3>Software Developer Intern</h3>
-                            <h4>Techxoetic — Dubai, UAE (Remote)</h4>
+                            <h3>Software Developer Intern (Remote)</h3>
+                            <h4>Techxoetic — Dubai, UAE</h4>
                             <p>Working on real-world client projects, building custom software solutions to solve core business challenges effectively.</p>
                         </div>
-                    </div>
-
                     <div class="timeline-row">
                         <span class="timeline-badge">May - June 2026</span>
-                        <div class="timeline-card">
-                            <h3>AI/ML Intern (Onsite)</h3>
+                        <div class="timeline-card clickable-card" onclick="openModal('femtosoftModal')" title="Click to view Internship Certificate & Report">
+                            <div class="card-header-flex">
+                                <h3>AI/ML Intern (Onsite)</h3>
+                                <span class="view-doc-badge"><img src="photos/external-link-cyan.svg" alt="link" class="link-icon"> View Docs</span>
+                            </div>
                             <h4>Femtosoft Technologies — Pallavaram, Chennai</h4>
                             <p>Developing machine learning models and applying artificial intelligence solutions to real-world datasets. Enhancing knowledge in predictive modeling and deep learning architectures.</p>
                         </div>
@@ -169,6 +170,97 @@
 
     </div>
 
+    <!-- Internship Documents Modal -->
+    <div id="femtosoftModal" class="doc-modal" onclick="closeModalOnBackdrop(event, 'femtosoftModal')">
+        <div class="doc-modal-content">
+            <div class="doc-modal-header">
+                <div>
+                    <h2>Femtosoft Technologies — Internship Documents</h2>
+                    <p class="doc-modal-sub">AI/ML Internship (May - June 2026)</p>
+                </div>
+                <button class="doc-close-btn" onclick="closeModal('femtosoftModal')" aria-label="Close">&times;</button>
+            </div>
+            <div class="doc-container-grid">
+                <!-- Certificate Card -->
+                <div class="doc-item-card">
+                    <div class="doc-item-header">
+                        <span class="doc-type-tag image-tag">📜 Certificate</span>
+                        <h3>Internship Certificate</h3>
+                    </div>
+                    <div class="doc-preview-wrapper" onclick="window.open('photos/Internship_certificate.jpeg', '_blank')">
+                        <img src="photos/Internship_certificate.jpeg" alt="Femtosoft Internship Certificate" class="doc-preview-img">
+                        <div class="preview-overlay">
+                            <span>Click to view full image ↗</span>
+                        </div>
+                    </div>
+                    <div class="doc-action-bar">
+                        <a href="photos/Internship_certificate.jpeg" target="_blank" class="doc-btn primary-btn">
+                            <img src="photos/external-link.svg" alt="open"> View Certificate
+                        </a>
+                        <a href="photos/Internship_certificate.jpeg" download="Femtosoft_Internship_Certificate.jpeg" class="doc-btn secondary-btn">
+                            <img src="photos/download.svg" alt="download"> Download
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Report Card -->
+                <div class="doc-item-card">
+                    <div class="doc-item-header">
+                        <span class="doc-type-tag pdf-tag">📄 Report</span>
+                        <h3>Internship Report</h3>
+                    </div>
+                    <div class="doc-preview-wrapper pdf-wrapper" onclick="window.open('photos/Karthikesh_Internship_Unofficial_report.pdf', '_blank')">
+                        <iframe src="photos/Karthikesh_Internship_Unofficial_report.pdf#toolbar=0" class="doc-preview-pdf" title="Internship Report Preview"></iframe>
+                        <div class="preview-overlay">
+                            <span>Click to open PDF ↗</span>
+                        </div>
+                    </div>
+                    <div class="doc-action-bar">
+                        <a href="photos/Karthikesh_Internship_Unofficial_report.pdf" target="_blank" class="doc-btn primary-btn">
+                            <img src="photos/external-link.svg" alt="open"> Open Report (PDF)
+                        </a>
+                        <a href="photos/Karthikesh_Internship_Unofficial_report.pdf" download="Femtosoft_Internship_Report.pdf" class="doc-btn secondary-btn">
+                            <img src="photos/download.svg" alt="download"> Download
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('show'), 10);
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = '';
+                }, 300);
+            }
+        }
+
+        function closeModalOnBackdrop(event, id) {
+            if (event.target.id === id) {
+                closeModal(id);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal('femtosoftModal');
+            }
+        });
+    </script>
 
     <footer>
         <p>&copy; 2026 Karthikesh. All rights reserved.</p>
