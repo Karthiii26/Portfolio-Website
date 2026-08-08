@@ -107,6 +107,52 @@
                         things that challenge me to grow.</p>
                 </div>
             </div>
+
+            <div class="certifications-section">
+
+                <div class="cert-header">
+                    <img src="photos/certificate-badge.svg" alt="certifications-icon">
+                    <h2>Certifications</h2>
+                </div>
+
+                <div class="certifications-container">
+                    <div class="cert-full-card clickable-card" onclick="openMediaViewer('image', 'photos/NPTEL_DS.png')" title="Click to view certificate">
+                        <div class="card-header-flex">
+                            <div class="cert-title-group">
+                                <span class="cert-badge">NPTEL</span>
+                                <h3>Data Structures and Algorithms</h3>
+                            </div>
+                            <span class="view-doc-badge"><img src="photos/external-link-cyan.svg" alt="link" class="link-icon"> View</span>
+                        </div>
+                        <h4>NPTEL Certification</h4>
+                        <p>Completed 12-week certification course in Data Structures and Algorithms which helped improve my problem-solving skills.</p>
+                    </div>
+
+                    <div class="cert-full-card clickable-card" onclick="openMediaViewer('image', 'photos/NPTEL_DBMS.png')" title="Click to view certificate">
+                        <div class="card-header-flex">
+                            <div class="cert-title-group">
+                                <span class="cert-badge">NPTEL</span>
+                                <h3>Database Management Systems</h3>
+                            </div>
+                            <span class="view-doc-badge"><img src="photos/external-link-cyan.svg" alt="link" class="link-icon"> View</span>
+                        </div>
+                        <h4>NPTEL Certification</h4>
+                        <p>Certified in relational database design, SQL query optimization, ER modeling, and normalization.</p>
+                    </div>
+
+                    <div class="cert-full-card clickable-card" onclick="openMediaViewer('image', 'photos/Maiyyam_MERN_Traineeship.png')" title="Click to view certificate">
+                        <div class="card-header-flex">
+                            <div class="cert-title-group">
+                                <span class="cert-badge maiyyam-badge">Maiyyam</span>
+                                <h3>MERN Stack Traineeship</h3>
+                            </div>
+                            <span class="view-doc-badge"><img src="photos/external-link-cyan.svg" alt="link" class="link-icon"> View</span>
+                        </div>
+                        <h4>Maiyyam EduTech</h4>
+                        <p>Completed comprehensive hands-on traineeship building full-stack web applications with React, Node.js, Express, and MongoDB.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -125,6 +171,8 @@
                             <h4>Techxoetic — Dubai, UAE</h4>
                             <p>Working on real-world client projects, building custom software solutions to solve core business challenges effectively.</p>
                         </div>
+                    </div>
+
                     <div class="timeline-row">
                         <span class="timeline-badge">May - June 2026</span>
                         <div class="timeline-card clickable-card" onclick="openModal('femtosoftModal')" title="Click to view Internship Certificate & Report">
@@ -184,47 +232,39 @@
                 <!-- Certificate Card -->
                 <div class="doc-item-card">
                     <div class="doc-item-header">
-                        <span class="doc-type-tag image-tag">📜 Certificate</span>
+                        <span class="doc-type-tag image-tag">Certificate</span>
                         <h3>Internship Certificate</h3>
                     </div>
-                    <div class="doc-preview-wrapper" onclick="window.open('photos/Internship_certificate.jpeg', '_blank')">
+                    <div class="doc-preview-wrapper" onclick="openMediaViewer('image', 'photos/Internship_certificate.jpeg')">
                         <img src="photos/Internship_certificate.jpeg" alt="Femtosoft Internship Certificate" class="doc-preview-img">
                         <div class="preview-overlay">
-                            <span>Click to view full image ↗</span>
+                            <span>Click to view Certificate</span>
                         </div>
-                    </div>
-                    <div class="doc-action-bar">
-                        <a href="photos/Internship_certificate.jpeg" target="_blank" class="doc-btn primary-btn">
-                            <img src="photos/external-link.svg" alt="open"> View Certificate
-                        </a>
-                        <a href="photos/Internship_certificate.jpeg" download="Femtosoft_Internship_Certificate.jpeg" class="doc-btn secondary-btn">
-                            <img src="photos/download.svg" alt="download"> Download
-                        </a>
                     </div>
                 </div>
 
                 <!-- Report Card -->
                 <div class="doc-item-card">
                     <div class="doc-item-header">
-                        <span class="doc-type-tag pdf-tag">📄 Report</span>
+                        <span class="doc-type-tag pdf-tag">Report</span>
                         <h3>Internship Report</h3>
                     </div>
-                    <div class="doc-preview-wrapper pdf-wrapper" onclick="window.open('photos/Karthikesh_Internship_Unofficial_report.pdf', '_blank')">
+                    <div class="doc-preview-wrapper pdf-wrapper" onclick="openMediaViewer('pdf', 'photos/Karthikesh_Internship_Unofficial_report.pdf')">
                         <iframe src="photos/Karthikesh_Internship_Unofficial_report.pdf#toolbar=0" class="doc-preview-pdf" title="Internship Report Preview"></iframe>
                         <div class="preview-overlay">
-                            <span>Click to open PDF ↗</span>
+                            <span>Click to view Report</span>
                         </div>
-                    </div>
-                    <div class="doc-action-bar">
-                        <a href="photos/Karthikesh_Internship_Unofficial_report.pdf" target="_blank" class="doc-btn primary-btn">
-                            <img src="photos/external-link.svg" alt="open"> Open Report (PDF)
-                        </a>
-                        <a href="photos/Karthikesh_Internship_Unofficial_report.pdf" download="Femtosoft_Internship_Report.pdf" class="doc-btn secondary-btn">
-                            <img src="photos/download.svg" alt="download"> Download
-                        </a>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Full Media Viewer Lightbox Modal -->
+    <div id="mediaViewerModal" class="media-viewer-modal" onclick="closeMediaViewerOnBackdrop(event)">
+        <div class="media-viewer-content">
+            <button class="doc-close-btn media-close-btn" onclick="closeMediaViewer()" aria-label="Close">&times;</button>
+            <div id="mediaViewerBody" class="media-viewer-body"></div>
         </div>
     </div>
 
@@ -255,8 +295,38 @@
             }
         }
 
+        function openMediaViewer(type, src) {
+            const modal = document.getElementById('mediaViewerModal');
+            const body = document.getElementById('mediaViewerBody');
+            if (type === 'image') {
+                body.innerHTML = `<img src="${src}" class="full-media-img" alt="Certificate Full View">`;
+            } else if (type === 'pdf') {
+                body.innerHTML = `<iframe src="${src}" class="full-media-pdf" title="Report PDF View"></iframe>`;
+            }
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        function closeMediaViewer() {
+            const modal = document.getElementById('mediaViewerModal');
+            if (modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    document.getElementById('mediaViewerBody').innerHTML = '';
+                }, 300);
+            }
+        }
+
+        function closeMediaViewerOnBackdrop(event) {
+            if (event.target.id === 'mediaViewerModal' || event.target.classList.contains('media-viewer-content')) {
+                closeMediaViewer();
+            }
+        }
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
+                closeMediaViewer();
                 closeModal('femtosoftModal');
             }
         });
