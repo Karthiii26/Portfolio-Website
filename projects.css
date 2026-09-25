@@ -51,7 +51,8 @@ body {
 
 .p1,
 .p2,
-.p3 {
+.p3,
+.p4 {
   height: 35vh;
   background: rgba(255, 255, 255, .03);
   border: 1px solid rgba(255, 255, 255, .08);
@@ -65,7 +66,8 @@ body {
 
 .p1::before,
 .p2::before,
-.p3::before {
+.p3::before,
+.p4::before {
   content: '';
   position: absolute;
   left: 0;
@@ -78,7 +80,8 @@ body {
 
 .p1:hover,
 .p2:hover,
-.p3:hover {
+.p3:hover,
+.p4:hover {
   border-color: rgba(60, 231, 255, .35);
   box-shadow: 0 16px 32px rgba(60, 231, 255, .10);
   transform: translateY(-6px);
@@ -345,8 +348,7 @@ body {
 .p1,
 .p2,
 .p3,
-.upcoming,
-.comingsoon,
+.p4,
 .github {
   opacity: 0;
   transform: translateY(25px);
@@ -368,16 +370,12 @@ body {
   animation-delay: .35s;
 }
 
-.comingsoon {
+.p4 {
   animation-delay: .45s;
 }
 
-.upcoming {
-  animation-delay: .55s;
-}
-
 .github {
-  animation-delay: .65s;
+  animation-delay: .55s;
 }
 
 
@@ -412,7 +410,8 @@ footer {
 
   .p1,
   .p2,
-  .p3 {
+  .p3,
+  .p4 {
     height: auto;
   }
 }
@@ -426,7 +425,8 @@ footer {
 
   .p1,
   .p2,
-  .p3 {
+  .p3,
+  .p4 {
     padding: 18px;
     padding-left: 40px;
   }
@@ -461,7 +461,8 @@ footer {
 
   .p1,
   .p2,
-  .p3 {
+  .p3,
+  .p4 {
     height: auto;
     padding: 16px;
     padding-left: 32px;
@@ -513,7 +514,8 @@ footer {
 
   .p1,
   .p2,
-  .p3 {
+  .p3,
+  .p4 {
     padding: 14px;
     padding-left: 26px;
   }
