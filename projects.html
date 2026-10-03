@@ -23,8 +23,13 @@
   <script>
     window.addEventListener('load', () => {
       const loader = document.getElementById('loader');
+      // Start fading the loader after 700 ms
       setTimeout(() => {
         loader.classList.add('fade-out');
+        // Loader CSS transition is 0.6 s — add page-ready once it's fully gone
+        setTimeout(() => {
+          document.body.classList.add('page-ready');
+        }, 650); // slightly over the 0.6s transition
       }, 700);
     });
   </script>
@@ -123,6 +128,37 @@
     </div>
 
     <div class="p4">
+      <div class="title">
+        <h1>ResumeMatch AI</h1>
+
+        <div class="title-icons">
+          <div class="icon-btn" onclick="window.open('https://github.com/Karthiii26/ResumeMatcher-AI', '_blank')">
+            <img src="photos/github.svg">
+          </div>
+
+          <div class="icon-btn" onclick="window.open('https://resumematcher-ai.vercel.app/', '_blank')">
+            <img src="photos/external-link-cyan.svg">
+          </div>
+        </div>
+      </div>
+
+      <div class="description">
+        <p>ResumeMatch AI is a semantic resume-to-job-description matcher powered by NLP sentence embeddings. Instead
+          of keyword counting, it uses <em>all-MiniLM-L6-v2</em> to compute cosine similarity across all JD
+          requirements — surfacing strong matches, partial matches, and skill gaps with actionable improvement
+          suggestions.</p>
+      </div>
+      <div class="tech">
+        <p>Python</p>
+        <p>Streamlit</p>
+        <p>sentence-transformers</p>
+        <p>scikit-learn</p>
+        <p>pdfplumber</p>
+        <p>NLP</p>
+      </div>
+    </div>
+
+    <div class="p5">
       <div class="title">
         <h1>QueryPilot</h1>
 

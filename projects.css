@@ -52,7 +52,8 @@ body {
 .p1,
 .p2,
 .p3,
-.p4 {
+.p4,
+.p5 {
   height: 35vh;
   background: rgba(255, 255, 255, .03);
   border: 1px solid rgba(255, 255, 255, .08);
@@ -67,7 +68,8 @@ body {
 .p1::before,
 .p2::before,
 .p3::before,
-.p4::before {
+.p4::before,
+.p5::before {
   content: '';
   position: absolute;
   left: 0;
@@ -81,7 +83,8 @@ body {
 .p1:hover,
 .p2:hover,
 .p3:hover,
-.p4:hover {
+.p4:hover,
+.p5:hover {
   border-color: rgba(60, 231, 255, .35);
   box-shadow: 0 16px 32px rgba(60, 231, 255, .10);
   transform: translateY(-6px);
@@ -344,39 +347,35 @@ body {
   transform: scale(1.1);
 }
 
+/* Elements start hidden; animations fire only once .page-ready is set on <body> */
 .top,
 .p1,
 .p2,
 .p3,
 .p4,
+.p5,
 .github {
   opacity: 0;
   transform: translateY(25px);
-  animation: fadeUp 1s ease-out forwards;
 }
 
-.top {
-  animation-delay: .05s;}
-
-.p1 {
-  animation-delay: .15s;
+body.page-ready .top,
+body.page-ready .p1,
+body.page-ready .p2,
+body.page-ready .p3,
+body.page-ready .p4,
+body.page-ready .p5,
+body.page-ready .github {
+  animation: fadeUp 0.8s ease-out forwards;
 }
 
-.p2 {
-  animation-delay: .25s;
-}
-
-.p3 {
-  animation-delay: .35s;
-}
-
-.p4 {
-  animation-delay: .45s;
-}
-
-.github {
-  animation-delay: .55s;
-}
+body.page-ready .top  { animation-delay: 0s;    }
+body.page-ready .p1   { animation-delay: .10s;  }
+body.page-ready .p2   { animation-delay: .20s;  }
+body.page-ready .p3   { animation-delay: .30s;  }
+body.page-ready .p4   { animation-delay: .40s;  }
+body.page-ready .p5   { animation-delay: .50s;  }
+body.page-ready .github { animation-delay: .60s; }
 
 
 footer {
@@ -411,7 +410,8 @@ footer {
   .p1,
   .p2,
   .p3,
-  .p4 {
+  .p4,
+  .p5 {
     height: auto;
   }
 }
@@ -426,7 +426,8 @@ footer {
   .p1,
   .p2,
   .p3,
-  .p4 {
+  .p4,
+  .p5 {
     padding: 18px;
     padding-left: 40px;
   }
@@ -462,7 +463,8 @@ footer {
   .p1,
   .p2,
   .p3,
-  .p4 {
+  .p4,
+  .p5 {
     height: auto;
     padding: 16px;
     padding-left: 32px;
@@ -515,7 +517,8 @@ footer {
   .p1,
   .p2,
   .p3,
-  .p4 {
+  .p4,
+  .p5 {
     padding: 14px;
     padding-left: 26px;
   }
